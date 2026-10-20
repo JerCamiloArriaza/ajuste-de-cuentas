@@ -1,0 +1,120 @@
+Ministerio de Hacienda       TOMADO RAZÓN CON ALCANCE
+Reg. 166JJ 23/03/2026                      Oficio: 91514 / 2026
+                                               12 Mayo 2026
+       TP 344
+                        Jefe de División de Contabilidad y Finanzas Públicas
+
+                        Código Verificación: 1778616917595-784289D3-3F50-4616-
+                        B40D-69519BF1C0A2
+                        Visite: Contraloría General de la República www.contraloría.cl
+
+                        REF.: MODIFICA PRESUPUESTO VIGENTE
+                        DEL SECTOR PÚBLICO.
+
+                        SANTIAGO, 24 ABR 2026
+
+                        N°  340                /
+
+                        VISTOS: Lo dispuesto en la Ley N°21.796, de
+                        Presupuestos del Sector Público correspondiente
+                        al año 2026; el Oficio Circular N°12 de 2026
+                        del Ministerio de Hacienda, el Decreto N°1.845
+                        de 2025, del Ministerio de Hacienda, sobre
+                        modificaciones presupuestarias para el año 2026;
+                        el artículo 26 del D.L. N°1.263, de 1975, del
+                        Ministerio de Hacienda; y la Resolución N°36, de
+                        2024, de la Contraloría General de la República,
+                        que fija normas sobre exención del trámite de
+                        toma de razón.
+
+jpgm/CMV/cfs/mtw        DECRETO:
+
+                        MODIFÍCASE el presupuesto vigente del Sector
+                        Público en los siguientes términos:
+                                                                2
+Ministerio de Hacienda
+166JJ 23/03/2026
+
+Partida   50 TESORO PÚBLICO
+Capítulo  01 FISCO
+Programa  01 INGRESOS GENERALES DE LA NACIÓN
+
+                                                                               Miles de US$
+
+Sub Item Asig SubA    Denominación                                             Incremento Reducción
+ 11                   VENTA DE ACTIVOS FINANCIEROS                                                        7.944
+                      Venta o Rescate de Títulos y Valores
+         01           Depósitos a Plazo                                                      7.944
+                 001
+                      Denominación                                                           7.944
+Sub Item Asig SubA    VENTA DE ACTIVOS FINANCIEROS
+ 11                   Venta o Rescate de Títulos y Valores                     Miles de $
+                      Depósitos a Plazo
+         01                                                                    Incremento Reducción
+                 001                                                                                 1.633.652
+
+                                                                                           1.633.652
+
+                                                                                           1.633.652
+
+Partida   50 TESORO PÚBLICO
+Capítulo  01 FISCO
+Programa  05 APORTE FISCAL LIBRE
+
+Sub Item Asig SubA    Denominación                                                   Miles de US$
+ 27                   APORTE FISCAL LIBRE                                      Incremento Reducción
+                      MINISTERIO DE RELACIONES EXTERIORES
+         06           Secretaría y Administración General y Servicio Exterior                             7.944
+                 001  Subsecretaría de Relaciones Económicas Internacionales                              7.944
+                 006  Dirección General de Promoción de Exportaciones                                     6.985
+                 007
+                      Denominación                                                                          347
+Sub Item Asig SubA    APORTE FISCAL LIBRE                                                                   612
+ 27                   MINISTERIO DE RELACIONES EXTERIORES                              Miles de $
+                      Dirección de Fronteras y Límites del Estado              Incremento Reducción
+         06           Instituto Antártico Chileno                                                    1.633.652
+                 003  Agencia de Cooperación Internacional de Chile                                  1.633.652
+                 004  Subsecretaría de Relaciones Económicas Internacionales                           225.393
+                 005  Dirección General de Promoción de Exportaciones                                  244.554
+                 006                                                                                   258.485
+                 007                                                                                   153.836
+                                                                                                       751.384
+
+Partida   06 MINISTERIO DE RELACIONES EXTERIORES
+Ministerio de Hacienda                                 3
+166JJ 23/03/2026
+                        SECRETARÍA Y ADMINISTRACIÓN GENERAL Y SERVICIO
+     Capítulo 01        EXTERIOR
+                        SECRETARÍA Y ADMINISTRACIÓN GENERAL Y SERVICIO
+     Programa 01        EXTERIOR
+
+Sub Item Asig SubA      Denominación                                                Miles de US$
+ 09                     APORTE FISCAL                                         Incremento Reducción
+                        Libre
+         01             GASTOS EN PERSONAL                                                               6.985
+ 21                     BIENES Y SERVICIOS DE CONSUMO                                                    6.985
+ 22                     TRANSFERENCIAS CORRIENTES                                                        2.556
+ 24                     A Organismos Internacionales
+                        Cuotas a Organismos Internacionales_RR.EE                                          324
+         07                                                                                              4.105
+                 001                                                                                     4.105
+                                                                                                         4.105
+Glosas:
+                                                                                                                     50
+03 Redúzcase:
+       c) Autorización máxima para gastos en viáticos
+            - En el Exterior, en Miles de US $
+
+04 Redúzcase:
+       b) Para gastos reservados, Ley N°19.863, US$100 miles.
+
+Partida   06 MINISTERIO DE RELACIONES EXTERIORES
+Capítulo  03 DIRECCIÓN DE FRONTERAS Y LÍMITES DEL ESTADO
+Programa  01 DIRECCIÓN DE FRONTERAS Y LÍMITES DEL ESTADO
+
+Sub Item Asig SubA      Denominación                                                  Miles de $
+ 09                     APORTE FISCAL                                         Incremento Reducción
+                        Libre
+         01             GASTOS EN PERSONAL                                                            225.393
+ 21                     BIENES Y SERVICIOS DE CONSUMO                                                 225.393
+ 22                     TRANSFERENCIAS CORRIENTES

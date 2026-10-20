@@ -1,0 +1,120 @@
+ Ministerio de Hacienda       TOMADO RAZÓN CON ALCANCE
+Reg. 124MS 02/04/2026                      Oficio: 110917 / 2026
+                                                11 Junio 2026
+        TP 462
+                         Jefe de División de Contabilidad y Finanzas Públicas
+
+                         Código Verificación: 1781190645923-
+                         E8A955E5-35EA-4FB5-98AE-0C4D035FE177
+                         Visite: Contraloría General de la República www.contraloría.cl
+
+                         REF.: MODIFICA PRESUPUESTO VIGENTE
+                         DEL SECTOR PÚBLICO.
+
+                         SANTIAGO, 24 ABR 2026
+
+                         N°  331                /
+
+                         VISTOS: Lo dispuesto en la Ley N°21.796, de
+                         Presupuestos del Sector Público correspondiente
+                         al año 2026; el Decreto N°1.845 de 2025, del
+                         Ministerio de Hacienda, sobre modificaciones
+                         presupuestarias para el año 2026; el Oficio
+                         Circular N°12 de 2026 del Ministerio de
+                         Hacienda; el artículo 26 del D.L. N°1.263, de
+                         1975, del Ministerio de Hacienda; y la Resolución
+                         N°36, de 2024, de la Contraloría General de la
+                         República, que fija normas sobre exención del
+                         trámite de toma de razón.
+
+jpgm/CMV/cfs/pagc        DECRETO:
+
+                         MODIFÍCASE el presupuesto vigente del Sector
+                         Público en los siguientes términos:
+                                                                2
+Ministerio de Hacienda
+124MS 02/04/2026
+
+Partida   50 TESORO PÚBLICO
+Capítulo  01 FISCO
+Programa  01 INGRESOS GENERALES DE LA NACIÓN
+
+Sub Item Asig SubA    Denominación                                                        Miles de $
+ 11                   VENTA DE ACTIVOS FINANCIEROS                                Incremento Reducción
+                      Venta o Rescate de Títulos y Valores
+         01           Depósitos a Plazo                                                               32.721.556
+                 001                                                                                  32.721.556
+                                                                                                      32.721.556
+
+Partida   50 TESORO PÚBLICO
+Capítulo  01 FISCO
+Programa  05 APORTE FISCAL LIBRE
+
+Sub Item Asig SubA    Denominación                                                        Miles de $
+ 27                   APORTE FISCAL LIBRE                                         Incremento Reducción
+                      MINISTERIO DE DESARROLLO SOCIAL Y FAMILIA
+         21           Subsecretaría de Servicios Sociales                                             32.721.556
+                 001  Fondo de Solidaridad e Inversión Social                                         32.721.556
+                 002  Instituto Nacional de la Juventud                                                 1.422.113
+                 005  Corporación Nacional de Desarrollo Indígena
+                 006  Servicio Nacional de la Discapacidad                                                750.155
+                 007  Servicio Nacional del Adulto Mayor                                                3.859.735
+                 008  Subsecretaría de Evaluación Social                                                7.634.475
+                 009  Subsecretaría de la Niñez                                                         1.135.239
+                 010  Servicio Nacional de Protección Especializada a la Niñez y
+                 011  Adolescencia                                                                        318.099
+                                                                                                        1.494.506
+                                                                                                        3.359.181
+                                                                                                      12.748.053
+
+Partida   16 MINISTERIO DE SALUD
+Capítulo  10 SUBSECRETARÍA DE REDES ASISTENCIALES
+Programa  01 SUBSECRETARÍA DE REDES ASISTENCIALES
+
+Sub Item Asig SubA    Denominación                                                        Miles de $
+ 05                   TRANSFERENCIAS CORRIENTES                                   Incremento Reducción
+
+                                                                                                        1.850.000
+Ministerio de Hacienda                        3                                      Incremento  Reducción
+124MS 02/04/2026                                                                                  1.850.000
+ Sub Item Asig SubA     Denominación                                                              1.850.000
+                        Del Gobierno Central                                                      1.850.000
+          02            Sistema de Protección Integral a la Infancia                              1.850.000
+                  002   TRANSFERENCIAS CORRIENTES                                                 1.850.000
+                        A Unidades o Programas del Servicio
+  24                    Programa de Apoyo al Recién Nacido
+          09
+                  011
+
+Partida   21 MINISTERIO DE DESARROLLO SOCIAL Y FAMILIA
+Capítulo  01 SUBSECRETARÍA DE SERVICIOS SOCIALES
+Programa  01 SUBSECRETARÍA DE SERVICIOS SOCIALES
+
+Sub Item Asig SubA      Denominación                                                         Miles de $
+ 09                     APORTE FISCAL                                                Incremento Reducción
+                        Libre
+         01             GASTOS EN PERSONAL                                                                 1.272.113
+ 21                     TRANSFERENCIAS CORRIENTES                                                          1.272.113
+ 24                     A Otras Entidades Públicas
+                        Apoyo, Monitoreo y Supervisión a la Gestión Territorial                                34.210
+         03             A Instituciones Privadas Ejecutoras de Políticas Públicas                          1.207.903
+                 342    Fundación de las Familias - Programa Red Telecentros
+                        A Unidades o Programas del Servicio                                                  400.000
+         08             Elige Vivir Sano                                                                     400.000
+                 001    Programa Red Integral de Protección Social                                           515.500
+                        Programa de Apoyo a la Selección de Beneficios Sociales                              515.500
+         09             ADQUISICIÓN DE ACTIVOS NO FINANCIEROS                                                292.403
+                 003    Mobiliario y Otros                                                                   101.746
+                 005    Máquinas y Equipos                                                                     12.059
+                 006    Equipos Informáticos                                                                 178.598
+                                                                                                               30.000
+ 29                                                                                                            12.000
+         04
+         05                                                                                                     9.000
+         06                                                                                                     9.000
+
+Glosas:                                                                                           34.210
+                                                                                                  12.059
+02 e) Autorización máxima para cumplimiento artículo septuagésimo tercero de la Ley               23.128
+            N° 19.882, Asignación por Funciones Críticas:                                        105.200
+

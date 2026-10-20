@@ -1,0 +1,48 @@
+name: Revisión diaria de fuentes
+
+on:
+  schedule:
+    - cron: "0 11 * * *" # todos los días, ~8:00 hora de Chile
+  workflow_dispatch: # permite correrla a mano desde la pestaña "Actions"
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar lector de PDF
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - run: npm ci
+
+      - name: Revisar decretos y noticias
+        run: node scripts/revisar.mjs
+
+      - name: Validar datos (si algo quedó mal, no se publica)
+        run: npm test
+
+      - name: Publicar cambios
+        run: |
+          if [ -n "$(git status --porcelain data/)" ]; then
+            git config user.name "robot-ajuste-de-cuentas"
+            git config user.email "robot@users.noreply.github.com"
+            git add data/
+            git commit -m "Revisión diaria $(date +%F)"
+            git push
+          fi
+
+      - name: Abrir aviso con lo que hay que revisar
+        if: hashFiles('informe-revision.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Para revisar — $(date +%F)" --body-file informe-revision.md
