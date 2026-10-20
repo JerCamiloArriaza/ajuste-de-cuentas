@@ -21,6 +21,8 @@ const ESTADO = path.join(RAIZ, "data/revision.json");
 const AUTOMATICOS = path.join(RAIZ, "data/automaticos.json");
 const INFORME = path.join(RAIZ, "informe-revision.md");
 
+const MAX_NOTICIAS = 60;
+
 const BUSQUEDAS = [
   "gobierno recorte programa",
   "gobierno elimina programa",
@@ -136,9 +138,11 @@ function escribirInforme({ publicados, decretosSinLeer, noticias }) {
   if (noticias.length) {
     l.push(`## Noticias para revisar (${noticias.length})`, "");
     l.push("No se publican solas. Si alguna es un cambio real, busca la fuente oficial y agrégalo en `data/proyectos.ts`.", "");
-    for (const n of noticias) l.push(`- [ ] [${n.titulo.replace(/[[\]]/g, "")}](${n.enlace})`);
+    for (const n of noticias.slice(0, MAX_NOTICIAS)) l.push(`- [ ] [${n.titulo.replace(/[[\]]/g, "")}](${n.enlace})`);
+    if (noticias.length > MAX_NOTICIAS) l.push("", `…y ${noticias.length - MAX_NOTICIAS} noticias más (no se muestran para no pasar el límite de GitHub).`);
   }
-  fs.writeFileSync(INFORME, l.join("\n") + "\n");
+  // GitHub rechaza avisos de más de 65.536 caracteres.
+  fs.writeFileSync(INFORME, l.join("\n").slice(0, 60000) + "\n");
 }
 
 const estado = leerJson(ESTADO, { decretos: {}, noticiasVistas: [] });
