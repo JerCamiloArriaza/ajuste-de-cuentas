@@ -4,6 +4,13 @@
 /** Frases que identifican un decreto de ajuste fiscal (recorte). Agregar aquí nuevas circulares. */
 export const MARCAS_DE_RECORTE = [/Oficio\s+Circular\s+N\W{0,3}\s*12\b/i, /ajuste\s+fiscal/i];
 
+/** Único tipo de dirección que el robot acepta como fuente: un PDF de decreto en el sitio de Dipres. */
+const URL_DECRETO = /^https:\/\/www\.dipres\.gob\.cl\/Decretos\/\d{4}\/\d{1,5}_TR\.pdf$/;
+const FECHA_ISO = /^\d{4}-\d{2}-\d{2}$/;
+
+/** Tope de cordura: ningún decreto de ajuste real supera esto (el mayor de 2026 fue ~413.000). */
+export const MONTO_MAXIMO_MILLONES = 2_000_000;
+
 /** Lee la tabla HTML del listado anual de Dipres → [{ numero, fecha, tramitado, url }]. */
 export function leerListado(html) {
   const filas = [];
@@ -12,8 +19,11 @@ export function leerListado(html) {
       m[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(),
     );
     const url = fila.match(/href="([^"]+\.pdf)"/)?.[1];
-    if (celdas.length >= 3 && url) {
-      filas.push({ numero: celdas[0], fecha: aIso(celdas[1]), tramitado: aIso(celdas[2]), url });
+    if (celdas.length < 3 || !url) continue;
+    const d = { numero: celdas[0], fecha: aIso(celdas[1]), tramitado: aIso(celdas[2]), url };
+    // Lo que no tenga exactamente la forma esperada se descarta: no se confía en el contenido externo.
+    if (/^\d{1,5}$/.test(d.numero) && FECHA_ISO.test(d.fecha) && FECHA_ISO.test(d.tramitado) && URL_DECRETO.test(d.url)) {
+      filas.push(d);
     }
   }
   return filas;
@@ -70,6 +80,8 @@ export function leerRecorte(texto) {
   }
 
   if (!monto || !organismo) return null;
+  // Datos con forma rara o cifras fuera de lo razonable no se publican solos: van a revisión humana.
+  if (monto > MONTO_MAXIMO_MILLONES || organismo.length > 120 || !/^[\p{L}\p{N} ,.()-]+$/u.test(organismo)) return null;
   return { organismo, montoMillones: monto };
 }
 

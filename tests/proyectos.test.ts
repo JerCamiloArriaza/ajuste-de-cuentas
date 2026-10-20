@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { contarPorEstado, filtrar, formatearMonto, publicados, tieneFuenteOficial, totales } from "@/lib/proyectos";
 import type { Proyecto } from "@/lib/tipos";
 import { PROYECTOS } from "@/data/proyectos";
+import { esUrlSegura } from "@/lib/urls";
 
 function proyecto(parcial: Partial<Proyecto>): Proyecto {
   return {
@@ -77,5 +78,27 @@ describe("montos", () => {
   it("formatea millones y billones", () => {
     expect(formatearMonto(32722)).toBe("$32.722 millones");
     expect(formatearMonto(1399946)).toBe("$1,4 billones");
+  });
+});
+
+describe("seguridad de los datos", () => {
+  it("todas las fuentes son enlaces http(s) válidos", () => {
+    for (const p of PROYECTOS) for (const f of p.fuentes) expect(esUrlSegura(f.url), `${p.id}: ${f.url}`).toBe(true);
+  });
+
+  it("rechaza enlaces peligrosos", () => {
+    for (const malo of ["javascript:alert(1)", "data:text/html,<script>1</script>", "vbscript:x", "no es url"]) {
+      expect(esUrlSegura(malo)).toBe(false);
+    }
+  });
+
+  it("los ids solo usan letras, números y guiones (van en la dirección de la página)", () => {
+    for (const p of PROYECTOS) expect(p.id, p.id).toMatch(/^[a-z0-9-]+$/);
+  });
+
+  it("los registros automáticos solo citan PDF de Dipres", () => {
+    for (const p of PROYECTOS.filter((p) => p.automatico)) {
+      for (const f of p.fuentes) expect(f.url).toMatch(/^https:\/\/www\.dipres\.gob\.cl\/Decretos\//);
+    }
   });
 });

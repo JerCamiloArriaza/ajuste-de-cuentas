@@ -6,16 +6,22 @@ on:
   workflow_dispatch: # permite correrla a mano desde la pestaña "Actions"
 
 permissions:
-  contents: write
-  issues: write
+  contents: write # solo para guardar los cambios de data/
+  issues: write # solo para abrir el aviso diario
+
+# Nunca dos revisiones a la vez.
+concurrency:
+  group: revision-diaria
+  cancel-in-progress: false
 
 jobs:
   revisar:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm

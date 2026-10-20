@@ -5,6 +5,7 @@ import { Compartir } from "@/components/Compartir";
 import { AvisoPorVerificar, EtiquetaEstado } from "@/components/EtiquetaEstado";
 import { buscarPorId, formatearFecha, formatearMonto, publicados } from "@/lib/proyectos";
 import { ESTADOS, TIPOS } from "@/lib/tipos";
+import { esUrlSegura } from "@/lib/urls";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -84,9 +85,13 @@ export default async function Ficha({ params }: Props) {
               <span className="mr-2 rounded bg-stone-200 px-1.5 py-0.5 text-xs font-medium dark:bg-stone-800">
                 {f.tipo === "oficial" ? "Oficial" : "Prensa"}
               </span>
-              <a href={f.url} target="_blank" rel="noopener noreferrer" className="underline break-words">
-                {f.titulo}
-              </a>
+              {esUrlSegura(f.url) ? (
+                <a href={f.url} target="_blank" rel="noopener noreferrer" className="underline break-words">
+                  {f.titulo}
+                </a>
+              ) : (
+                <span>{f.titulo} (enlace no disponible)</span>
+              )}
             </li>
           ))}
         </ul>

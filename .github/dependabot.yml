@@ -1,0 +1,13 @@
+# Dependabot avisa (y abre un cambio listo para aprobar) cuando una librería o una acción
+# de GitHub tiene una versión nueva o una vulnerabilidad conocida.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

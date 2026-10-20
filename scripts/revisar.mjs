@@ -105,13 +105,19 @@ async function revisarNoticias(estado, informe) {
         const enlace = item.match(/<link>([\s\S]*?)<\/link>/)?.[1]?.trim();
         if (!titulo || !enlace || vistas.has(enlace)) continue;
         vistas.add(enlace);
-        informe.noticias.push({ titulo: decodificar(titulo), enlace });
+        informe.noticias.push({ titulo: limpiarTitulo(decodificar(titulo)), enlace });
       }
     } catch (e) {
       console.warn(`Búsqueda "${q}" falló: ${e.message}`);
     }
   }
   estado.noticiasVistas = [...vistas].slice(-1000);
+}
+
+/** Los titulares vienen de internet y terminan en un aviso de GitHub: se les quita lo que pueda
+ *  mencionar a usuarios (@), meter HTML o alargar el texto. */
+function limpiarTitulo(s) {
+  return s.replace(/@/g, "@​").replace(/[<>]/g, "").slice(0, 200);
 }
 
 function decodificar(s) {
