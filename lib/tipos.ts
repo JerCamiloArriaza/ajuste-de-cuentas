@@ -1,12 +1,13 @@
 export type Estado = "eliminado" | "postergado" | "en_proceso" | "aprobado";
 
-export type Tipo = "recorte" | "eliminacion" | "retiro" | "reformulacion";
+export type Tipo = "recorte" | "eliminacion" | "retiro" | "reformulacion" | "otro";
 
 export const TIPOS: Record<Tipo, string> = {
   recorte: "Recorte",
   eliminacion: "Eliminación",
   retiro: "Retiro",
   reformulacion: "Reformulación",
+  otro: "Seguimiento",
 };
 
 export type Fuente = {

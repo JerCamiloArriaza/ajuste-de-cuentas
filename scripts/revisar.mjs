@@ -15,6 +15,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { esDecretoDeRecorte, fichaDeDecreto, leerListado, leerRecorte } from "./decretos.mjs";
+import { claveTitular, esNoticiaRelevante } from "./noticias.mjs";
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
 const ESTADO = path.join(RAIZ, "data/revision.json");
@@ -96,8 +97,9 @@ async function revisarDecretos(estado, automaticos, informe) {
 
 async function revisarNoticias(estado, informe) {
   const vistas = new Set(estado.noticiasVistas ?? []);
+  const titulares = new Set(estado.titularesVistos ?? []);
   for (const q of BUSQUEDAS) {
-    const url = `https://news.google.com/rss/search?q=${encodeURIComponent(`${q} when:2d`)}&hl=es-419&gl=CL&ceid=CL:es-419`;
+    const url = `https://news.google.com/rss/search?q=${encodeURIComponent(`${q} Chile when:2d`)}&hl=es-419&gl=CL&ceid=CL:es-419`;
     try {
       const xml = await (await descargar(url)).text();
       for (const item of xml.match(/<item>[\s\S]*?<\/item>/g) ?? []) {
@@ -105,13 +107,21 @@ async function revisarNoticias(estado, informe) {
         const enlace = item.match(/<link>([\s\S]*?)<\/link>/)?.[1]?.trim();
         if (!titulo || !enlace || vistas.has(enlace)) continue;
         vistas.add(enlace);
-        informe.noticias.push({ titulo: limpiarTitulo(decodificar(titulo)), enlace });
+        const fuente = item.match(/<source[^>]*url="([^"]+)"/)?.[1] ?? "";
+        const limpio = limpiarTitulo(decodificar(titulo));
+        // Solo medios chilenos y titulares sobre una acción concreta; sin repetir la misma noticia.
+        if (!esNoticiaRelevante(limpio, fuente)) continue;
+        const clave = claveTitular(limpio);
+        if (titulares.has(clave)) continue;
+        titulares.add(clave);
+        informe.noticias.push({ titulo: limpio, enlace });
       }
     } catch (e) {
       console.warn(`Búsqueda "${q}" falló: ${e.message}`);
     }
   }
   estado.noticiasVistas = [...vistas].slice(-1000);
+  estado.titularesVistos = [...titulares].slice(-1000);
 }
 
 /** Los titulares vienen de internet y terminan en un aviso de GitHub: se les quita lo que pueda
