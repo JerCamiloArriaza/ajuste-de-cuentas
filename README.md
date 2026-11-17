@@ -58,3 +58,8 @@ rama `main` (incluidos los del robot diario) se publica solo en un par de minuto
    de WhatsApp y X funcionen.
 4. En GitHub, pestaña **Actions**, activa los workflows. El robot correrá todos los días;
    también puedes lanzarlo con “Run workflow”.
+
+## Licencia
+
+- **Código:** MIT (ver [`LICENSE`](LICENSE)).
+- **Datos** de `data/`: CC BY 4.0, citando la fuente (ver [`LICENSE-DATOS.md`](LICENSE-DATOS.md)).
