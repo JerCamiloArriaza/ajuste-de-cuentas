@@ -4,6 +4,8 @@ Plataforma ciudadana, sin fines de lucro, para que la gente sepa qué programas 
 públicos el gobierno **elimina**, **posterga**, **recorta** o propone cambiar. Cada ficha
 enlaza a su fuente oficial. Funciona en el celular y se puede instalar como app.
 
+**Sitio en vivo: https://ajuste-de-cuentas.vercel.app**
+
 ## Cómo se alimenta sola
 
 Todos los días, a las ~8:00, un robot (GitHub Actions, gratis) ejecuta `scripts/revisar.mjs`:
@@ -40,7 +42,13 @@ npm test         # valida datos y lógica
 node scripts/revisar.mjs   # corre el robot a mano (necesita pdftotext / poppler)
 ```
 
-## Publicar en internet (gratis)
+## Cómo está publicada
+
+La página vive en Vercel (plan gratuito), conectada a este repositorio: cada cambio que llega a la
+rama `main` (incluidos los del robot diario) se publica solo en un par de minutos. La variable
+`NEXT_PUBLIC_SITE_URL` está configurada en Vercel con la dirección del sitio.
+
+## Publicar en internet desde cero (gratis)
 
 1. Crea una cuenta en https://github.com y un repositorio nuevo (público).
 2. Sube esta carpeta al repositorio.
