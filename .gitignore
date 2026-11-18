@@ -6,3 +6,11 @@ next-env.d.ts
 .env*
 .vercel
 informe-revision.md
+
+# Nunca subir códigos de recuperación, claves ni certificados
+*recovery*codes*
+*recovery-codes*
+*.pem
+*.key
+*.p12
+id_rsa*

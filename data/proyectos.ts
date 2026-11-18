@@ -28,6 +28,14 @@ const DIPRES_OFERTA_2027 = {
   tipo: "oficial",
 } as const;
 
+/** Tabla oficial de Dipres que compara cada programa en 2026 y en el proyecto 2027. */
+const cuadroDipres = (programa: string, articulo: number) =>
+  ({
+    titulo: `Dipres – Cuadro Comparativo Analítico 2026-2027: ${programa}`,
+    url: `https://www.dipres.gob.cl/597/articles-${articulo}_doc_pdf.pdf`,
+    tipo: "oficial",
+  }) as const;
+
 const INGRESO_CONGRESO = {
   fecha: "2026-09-30",
   estado: "en_proceso",
@@ -63,7 +71,7 @@ export const PROYECTOS: Proyecto[] = [
     id: "presupuesto-2027-yo-elijo-mi-pc",
     titulo: "Fin del programa “Yo Elijo mi PC” (notebooks para estudiantes)",
     resumen:
-      "El proyecto de Presupuestos 2027 no incluye la asignación de Junaeb que financia la entrega de computadores a estudiantes de 7° básico. En 2026 esa asignación era de unos $34.796 millones. No se identifica una partida equivalente que la reemplace. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Educación; como el Congreso no puede aumentar el gasto, solo el Gobierno puede reponer esos fondos.",
+      "La tabla oficial de Dipres muestra que la asignación de Junaeb “Programas de Becas Acceso a TICs” pasa de $34.796 millones en 2026 a $0 en el proyecto de Presupuestos 2027. La prensa la identifica con el programa “Yo Elijo mi PC” (computadores para estudiantes de 7° básico); el monto coincide con el que informó. No hay una asignación equivalente que la reemplace en ese programa. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Educación; como el Congreso no puede aumentar el gasto, solo el Gobierno puede reponer esos fondos.",
     area: "Educación",
     ministerio: "Ministerio de Educación",
     tipo: "eliminacion",
@@ -71,6 +79,7 @@ export const PROYECTOS: Proyecto[] = [
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [
+      cuadroDipres("Junaeb, Becas y Asistencialidad Estudiantil", 430893),
       CAMARA_PRESUPUESTO,
       DIPRES_PRESUPUESTO_2027,
       {
@@ -80,19 +89,22 @@ export const PROYECTOS: Proyecto[] = [
       },
     ],
     historial: [INGRESO_CONGRESO, COMISION_MIXTA, CAMARA_DESPACHA],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "presupuesto-2027-energia-siete-programas",
-    titulo: "Siete programas del Ministerio de Energía dejan de financiarse",
+    titulo: "Siete asignaciones de Energía quedan en $0 en 2027",
     resumen:
-      "Según la prensa, el proyecto de Presupuestos 2027 descontinúa siete programas de Energía, varios orientados a comunidades rurales y aisladas. Dipres señala que los ajustes se concentran en programas con malos resultados en sus evaluaciones.",
+      "Según la tabla oficial de Dipres, siete asignaciones de la Subsecretaría de Energía pasan a $0 en el proyecto 2027: Apoyo al Desarrollo de Energías Renovables no Convencionales (dos líneas), Programa de Impulso al Hidrógeno Verde en Chile, Transición Energética Justa y Desarrollo Productivo Sostenible (tres líneas). Sumaban $1.786 millones en 2026 (en pesos de 2027). La prensa señala que varias estaban orientadas a comunidades rurales y aisladas. Dipres afirma que los ajustes se concentran en programas con malas evaluaciones, pero la tabla no indica el motivo de cada uno.",
     area: "Medioambiente y energía",
     ministerio: "Ministerio de Energía",
     tipo: "eliminacion",
+    montoMillones: 1786,
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [
+      cuadroDipres("Subsecretaría de Energía, ERNC", 431184),
+      cuadroDipres("Subsecretaría de Energía, Transición Energética Justa", 431186),
       CAMARA_PRESUPUESTO,
       DIPRES_OFERTA_2027,
       {
@@ -102,19 +114,21 @@ export const PROYECTOS: Proyecto[] = [
       },
     ],
     historial: [INGRESO_CONGRESO, COMISION_MIXTA, CAMARA_DESPACHA],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "presupuesto-2027-liceos-bicentenario",
-    titulo: "Recorte de 46,7% a Liceos Bicentenario",
+    titulo: "Liceos Bicentenario: baja 18,8% la transferencia corriente",
     resumen:
-      "El proyecto de Presupuestos 2027 reduce en 46,7% el financiamiento del programa Liceos Bicentenario de Excelencia, según la prensa. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Educación; como el Congreso no puede aumentar el gasto, solo el Gobierno puede reponer esos fondos.",
+      "Según la tabla oficial de Dipres, la asignación “Liceos Bicentenario de Excelencia” baja en sus transferencias corrientes de $2.058 millones a $1.672 millones (−18,8%, en pesos de 2027). Sus transferencias de capital se mantienen en $1.902 millones, así que el programa completo pasa de $3.960 a $3.574 millones (−9,7%). Una nota de prensa informó una baja de 46,7%; esa cifra no coincide con la tabla oficial. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Educación; como el Congreso no puede aumentar el gasto, solo el Gobierno puede reponer esos fondos.",
     area: "Educación",
     ministerio: "Ministerio de Educación",
     tipo: "recorte",
+    montoMillones: 386,
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [
+      cuadroDipres("Subsecretaría de Educación", 430883),
       CAMARA_PRESUPUESTO,
       DIPRES_OFERTA_2027,
       {
@@ -124,13 +138,13 @@ export const PROYECTOS: Proyecto[] = [
       },
     ],
     historial: [INGRESO_CONGRESO, COMISION_MIXTA, CAMARA_DESPACHA],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "presupuesto-2027-tenencia-responsable-mascotas",
     titulo: "Programa de Tenencia Responsable de Mascotas (Ley Cholito) cae 86%",
     resumen:
-      "El programa pasaría de $3.634 millones en 2026 a $514 millones en 2027, según la prensa. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Interior; solo el Gobierno puede reponer esos fondos.",
+      "Según la tabla oficial de Dipres (Subdere), el Programa de Tenencia Responsable de Animales de Compañía pasa de $3.635 millones en 2026 a $514 millones en el proyecto 2027, una baja de 86%. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Interior; solo el Gobierno puede reponer esos fondos.",
     area: "Otra",
     ministerio: "Ministerio del Interior y Seguridad Pública",
     tipo: "recorte",
@@ -138,6 +152,7 @@ export const PROYECTOS: Proyecto[] = [
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [
+      cuadroDipres("Subdere, Programas de Desarrollo Local", 430825),
       CAMARA_PRESUPUESTO,
       DIPRES_OFERTA_2027,
       {
@@ -147,20 +162,21 @@ export const PROYECTOS: Proyecto[] = [
       },
     ],
     historial: [INGRESO_CONGRESO, COMISION_MIXTA, CAMARA_DESPACHA],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "presupuesto-2027-becas-chile",
-    titulo: "Becas Chile: $1.907 millones menos y fin de los cursos de idiomas",
+    titulo: "Becas Chile: baja 5,4% y se elimina el curso de idiomas",
     resumen:
-      "El proyecto asigna $21.810 millones a Becas Chile, frente a $23.717 millones en 2026. Además elimina la asignación de Cursos de Idiomas de Becas Chile. El presupuesto del Ministerio de Ciencia baja 7,4%. La partida de Ciencia llegó sin sus recursos desde la Comisión Mixta y el Ejecutivo no presentó indicaciones para reponerlos.",
+      "Según la tabla oficial de Dipres, la asignación Becas Chile baja de $23.052 millones (ley 2026 en pesos de 2027) a $21.811 millones en el proyecto 2027 (−5,4%, unos $1.242 millones menos), y la asignación “Cursos de Idiomas para Becas Chile” ($83 millones) queda en $0. La prensa informó una baja de $1.907 millones, que no coincide con la comparación oficial. La prensa también informa que el presupuesto del Ministerio de Ciencia baja 7,4%. La partida de Ciencia llegó sin sus recursos desde la Comisión Mixta y el Ejecutivo no presentó indicaciones para reponerlos.",
     area: "Ciencia",
     ministerio: "Ministerio de Ciencia, Tecnología, Conocimiento e Innovación",
     tipo: "recorte",
-    montoMillones: 1907,
+    montoMillones: 1242,
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [
+      cuadroDipres("Agencia Nacional de Investigación y Desarrollo (ANID)", 431224),
       CAMARA_PRESUPUESTO,
       DIPRES_PRESUPUESTO_2027,
       {
@@ -175,7 +191,7 @@ export const PROYECTOS: Proyecto[] = [
       },
     ],
     historial: [INGRESO_CONGRESO, COMISION_MIXTA, CAMARA_DESPACHA],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "presupuesto-2027-programas-salud-trans",
@@ -224,19 +240,21 @@ export const PROYECTOS: Proyecto[] = [
       },
     ],
     historial: [INGRESO_CONGRESO, COMISION_MIXTA, CAMARA_DESPACHA],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "presupuesto-2027-universidad-de-chile",
-    titulo: "Universidad de Chile: 19,4% menos para Actividades de Interés Nacional y PAES",
+    titulo: "Universidad de Chile: baja el aporte directo y se crean dos asignaciones nuevas",
     resumen:
-      "El proyecto de Presupuestos 2027 reduce en 19,4% real la asignación de Actividades de Interés Nacional de la Universidad de Chile, que también financia la aplicación de la PAES, según la prensa. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Educación; como el Congreso no puede aumentar el gasto, solo el Gobierno puede reponer esos fondos.",
+      "Según la tabla oficial de Dipres, la asignación “Universidad de Chile” (Educación Superior) pasa de $13.927 millones (2026, en pesos de 2027) a $7.870 millones en el proyecto 2027. En paralelo se crean dos asignaciones nuevas para esa universidad: Medición de Riesgo Sísmico ($450 millones) y Centro de Extensión Artística y Cultural ($3.711 millones). Sumadas, el aporte pasa de $13.927 a $12.031 millones (−13,6%). La prensa informó una baja de 19,4% en “Actividades de Interés Nacional”, que también financiaría la PAES; esa asignación no aparece con ese nombre en la tabla oficial, así que esa cifra no se pudo confirmar. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Educación; como el Congreso no puede aumentar el gasto, solo el Gobierno puede reponer esos fondos.",
     area: "Educación",
     ministerio: "Ministerio de Educación",
     tipo: "recorte",
+    montoMillones: 1896,
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [
+      cuadroDipres("Fortalecimiento de la Educación Superior Pública", 431014),
       CAMARA_PRESUPUESTO,
       DIPRES_PRESUPUESTO_2027,
       {
@@ -246,19 +264,20 @@ export const PROYECTOS: Proyecto[] = [
       },
     ],
     historial: [INGRESO_CONGRESO, COMISION_MIXTA, CAMARA_DESPACHA],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "oficio-hacienda-descontinuar-142-programas",
     titulo: "Hacienda pide a los ministerios evaluar descontinuar 142 programas",
     resumen:
-      "En abril, un oficio de Hacienda para preparar el Presupuesto 2027 recomendó descontinuar 142 programas de 22 ministerios, con un costo anual cercano a $5,4 billones, y rebajar otros 260. El ministro Quiroz dijo que no era una decisión de cerrar programas, sino una recomendación. El oficio incluía el Programa de Alimentación Escolar (PAE) de Junaeb, pero el ministro Quiroz y la Junaeb descartaron recortarlo: dijeron que los estudiantes seguirán recibiendo su alimentación sin interrupciones. Lo que finalmente se recorta aparece en las fichas del Presupuesto 2027.",
+      "En abril, un oficio de Hacienda para preparar el Presupuesto 2027 recomendó descontinuar 142 programas de 22 ministerios, con un costo anual cercano a $5,4 billones, y rebajar otros 260. El ministro Quiroz dijo que no era una decisión de cerrar programas, sino una recomendación. El oficio incluía el Programa de Alimentación Escolar (PAE) de Junaeb, pero el ministro Quiroz y la Junaeb descartaron recortarlo: dijeron que los estudiantes seguirán recibiendo su alimentación sin interrupciones. La tabla oficial de Dipres confirma que en el proyecto de Presupuestos 2027 el Programa de Alimentación Escolar y Parvularia mantiene $1.174.479 millones, sin variación. Lo que finalmente se recorta aparece en las fichas del Presupuesto 2027.",
     area: "Varias",
     ministerio: "Ministerio de Hacienda",
     tipo: "eliminacion",
     estado: "en_proceso",
     fecha: "2026-04-21",
     fuentes: [
+      cuadroDipres("Junaeb (Programa de Alimentación Escolar y Parvularia)", 430891),
       {
         titulo: "Dipres – Oficio Circular N°16: formulación del Presupuesto 2027",
         url: "http://bibliotecadigital.dipres.gob.cl/handle/11626/24164",
@@ -400,7 +419,7 @@ export const PROYECTOS: Proyecto[] = [
     id: "presupuesto-2027-ninez-siete-programas",
     titulo: "Siete programas de infancia pierden $34.451 millones",
     resumen:
-      "Según CIPER, el proyecto de Presupuestos 2027 recorta $34.451 millones en siete programas de Desarrollo Social que atienden a infancia vulnerable, niños en proceso de adopción y recién nacidos. El mayor recorte es Cuidado Alternativo (−$16.879 millones, de $177 mil millones a $160 mil millones, pese a su evaluación favorable de Dipres); Adopción baja $514 millones. Al mismo tiempo, el Gobierno sube $74.100 millones a tres programas que se ejecutan con organismos privados y municipios. La Defensoría de la Niñez alertó que más de la mitad de las asignaciones para la infancia disminuyen. El 13 de noviembre la Cámara rechazó las asignaciones del Servicio de Protección Especializada y de Senadis, y en el debate se destacó que la partida de Desarrollo Social crece 1,9% y que la mitad de sus recursos van a la niñez.",
+      "Según CIPER, el proyecto de Presupuestos 2027 recorta $34.451 millones en siete programas de Desarrollo Social que atienden a infancia vulnerable, niños en proceso de adopción y recién nacidos. La tabla oficial de Dipres confirma dos de ellos: Cuidado Alternativo baja de $182.200 millones a $160.221 millones (−12,1%, en pesos de 2027, pese a su evaluación favorable) y Programas de Adopción de $915 millones a $375 millones (−59%). El total de $34.451 millones y los otros cinco programas no se pudieron confirmar. Al mismo tiempo, según CIPER, el Gobierno sube $74.100 millones a tres programas que se ejecutan con organismos privados y municipios. La Defensoría de la Niñez alertó que más de la mitad de las asignaciones para la infancia disminuyen. El 13 de noviembre la Cámara rechazó las asignaciones del Servicio de Protección Especializada y de Senadis, y en el debate se destacó que la partida de Desarrollo Social crece 1,9% y que la mitad de sus recursos van a la niñez.",
     area: "Niñez",
     ministerio: "Ministerio de Desarrollo Social y Familia",
     tipo: "recorte",
@@ -408,6 +427,7 @@ export const PROYECTOS: Proyecto[] = [
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [
+      cuadroDipres("Servicio Nacional de Protección Especializada a la Niñez", 431177),
       CAMARA_DESARROLLO_SOCIAL,
       DIPRES_PRESUPUESTO_2027,
       {
@@ -426,15 +446,17 @@ export const PROYECTOS: Proyecto[] = [
   },
   {
     id: "presupuesto-2027-fondo-tierras-indigenas",
-    titulo: "Fondo de Tierras y Aguas Indígenas (Conadi): recorte en 2026 y disputa por 2027",
+    titulo: "Fondo de Tierras y Aguas Indígenas (Conadi): baja 23,5% en 2027",
     resumen:
-      "En 2026, el Decreto N°331 de Hacienda redujo en $7.634 millones el presupuesto de Conadi, que la prensa ubica sobre todo en el Fondo de Tierras y Aguas Indígenas. Para 2027, el proyecto de Presupuestos reasigna recursos de Conadi: el 13 de noviembre la Cámara rechazó las transferencias de capital al sector privado de ese fondo y aprobó una indicación de la diputada Emilia Nuyado que exige que su presupuesto no baje de unos $87 mil millones, el monto base de 2026. El Ejecutivo hizo reserva de constitucionalidad. En el debate hubo opiniones divididas: unos valoraron el cambio de foco; otros recordaron que es una obligación del Estado.",
+      "Según la tabla oficial de Dipres, el Fondo de Tierras y Aguas Indígenas de Conadi pasa de $87.294 millones (ley 2026, en pesos de 2027) a $66.811 millones en el proyecto 2027 (−23,5%, unos $20.483 millones menos); su programa de apoyo baja 3,4%. En 2026 ya había perdido recursos por el Decreto N°331 de Hacienda (la prensa informa $7.634 millones para Conadi, sobre todo en este fondo). El 13 de noviembre la Cámara rechazó las transferencias de capital al sector privado de ese fondo y aprobó una indicación de la diputada Emilia Nuyado que exige que no baje de unos $87 mil millones, el monto base de 2026. El Ejecutivo hizo reserva de constitucionalidad. En el debate hubo opiniones divididas: unos valoraron el cambio de foco; otros recordaron que es una obligación del Estado.",
     area: "Pueblos indígenas",
     ministerio: "Ministerio de Desarrollo Social y Familia",
-    tipo: "reformulacion",
+    tipo: "recorte",
+    montoMillones: 20483,
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [
+      cuadroDipres("Corporación Nacional de Desarrollo Indígena (Conadi)", 431171),
       CAMARA_DESARROLLO_SOCIAL,
       { titulo: "Decreto N°331 de 2026, Ministerio de Hacienda (Dipres)", url: "https://www.dipres.gob.cl/Decretos/2026/0331_TR.pdf", tipo: "oficial" },
       {
@@ -448,21 +470,21 @@ export const PROYECTOS: Proyecto[] = [
       INGRESO_CONGRESO,
       CAMARA_DESPACHA,
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "presupuesto-2027-fondo-apoyo-transporte-regional",
-    titulo: "Fondo de Apoyo al Transporte Público y la Conectividad Regional: baja de más de 70%",
+    titulo: "Fondo de Apoyo al Transporte Regional: el total sube, pero cae 71,6% su aporte del Subsidio Nacional",
     resumen:
-      "Durante la votación de la partida de Transportes, diputados de regiones criticaron la disminución de más de 70% del Fondo de Apoyo al Transporte Público y la Conectividad Regional, que según ellos significaría menos buses, menos trayectos y menos infraestructura. Señalaron que los recursos de la Región Metropolitana se mantienen mientras los de regiones se reducen. La cifra proviene de la intervención de los diputados, no de un documento de Dipres.",
+      "En la votación de la partida de Transportes, diputados criticaron una baja de más de 70% del Fondo de Apoyo al Transporte Público y la Conectividad Regional, que según ellos significaría menos buses, menos trayectos y menos infraestructura en regiones. La tabla oficial de Dipres muestra que el gasto total del programa sube de $494.996 millones a $591.517 millones (+19,5%, en pesos de 2027), pero que uno de sus ingresos, “De Subsidio Nacional al Transporte Público”, cae de $43.514 millones a $12.356 millones (−71,6%); la cifra citada por los diputados coincide con esa línea. Las transferencias de capital del fondo bajan de $494.776 millones a $478.334 millones (−3,3%).",
     area: "Transporte",
     ministerio: "Ministerio de Transportes y Telecomunicaciones",
-    tipo: "recorte",
+    tipo: "otro",
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [CAMARA_DESARROLLO_SOCIAL, DIPRES_PRESUPUESTO_2027],
     historial: [INGRESO_CONGRESO, CAMARA_DESPACHA],
-    verificado: false,
+    verificado: true,
   },
   ...DECRETOS_AJUSTE_2026,
   // Detectados por el robot de revisión diaria (scripts/revisar.mjs).

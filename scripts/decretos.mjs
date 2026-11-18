@@ -46,10 +46,12 @@ const NUMERO = /\d{1,3}(?:\.\d{3})+/;
  * aporte fiscal se reduce y el monto en millones. Devuelve null si no lo encuentra.
  */
 export function leerRecorte(texto) {
-  const lineas = texto.split(/\r?\n/).map((l) => l.replace(/\s+/g, " ").trim());
+  const crudas = texto.split(/\r?\n/); // conservan la posición de las columnas del PDF
+  const lineas = crudas.map((l) => l.replace(/\s+/g, " ").trim());
   const i = lineas.findIndex((l) => /Programa 05 APORTE FISCAL LIBRE/i.test(l));
   if (i < 0) return null;
   const bloque = lineas.slice(i, i + 25);
+  const bloqueCrudo = crudas.slice(i, i + 25);
 
   // Si el bloque parte en dólares, el monto en pesos viene después de "Miles de $".
   let desde = 0;
@@ -57,6 +59,10 @@ export function leerRecorte(texto) {
     desde = bloque.findIndex((l) => l.includes("Miles de $") && !l.includes("US$"));
     if (desde < 0) return null;
   }
+
+  // Un decreto también puede AUMENTAR el aporte de un organismo (reposiciones, reasignaciones).
+  // Solo se publica como recorte si el monto está en la columna "Reducción".
+  if (columnaDelMonto(bloqueCrudo, desde) !== "Reducción") return null;
 
   let monto = null;
   for (const l of bloque.slice(desde)) {
@@ -83,6 +89,27 @@ export function leerRecorte(texto) {
   // Datos con forma rara o cifras fuera de lo razonable no se publican solos: van a revisión humana.
   if (monto > MONTO_MAXIMO_MILLONES || organismo.length > 120 || !/^[\p{L}\p{N} ,.()-]+$/u.test(organismo)) return null;
   return { organismo, montoMillones: monto };
+}
+
+/**
+ * "Incremento" o "Reducción", según la columna donde cae el primer monto de la tabla.
+ * El texto de pdftotext -layout conserva la posición de las columnas, y los montos quedan
+ * alineados a la derecha bajo el encabezado de cada columna.
+ */
+export function columnaDelMonto(lineasCrudas, desde = 0) {
+  const h = lineasCrudas.findIndex((l, k) => k >= desde && /Incremento/.test(l) && /Reducci/.test(l));
+  if (h < 0) return null;
+  const finInc = lineasCrudas[h].indexOf("Incremento") + "Incremento".length;
+  const inicioRed = lineasCrudas[h].search(/Reducci/);
+  const finRed = inicioRed + lineasCrudas[h].slice(inicioRed).match(/^\S+/)[0].length;
+  for (const l of lineasCrudas.slice(h + 1, h + 12)) {
+    const m = l.match(NUMERO);
+    if (m) {
+      const fin = m.index + m[0].length;
+      return Math.abs(fin - finRed) <= Math.abs(fin - finInc) ? "Reducción" : "Incremento";
+    }
+  }
+  return null;
 }
 
 const MINUSCULAS = new Set(["de", "del", "la", "las", "el", "los", "y", "e", "a"]);

@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import { describe, expect, it } from "vitest";
-import { esDecretoDeRecorte, fichaDeDecreto, leerListado, leerRecorte } from "../scripts/decretos.mjs";
+import { columnaDelMonto, esDecretoDeRecorte, fichaDeDecreto, leerListado, leerRecorte } from "../scripts/decretos.mjs";
 
 const fixture = (n) => fs.readFileSync(new URL(`./fixtures/decreto-${n}.txt`, import.meta.url), "utf8");
 
@@ -64,5 +64,37 @@ describe("el robot no confía en el contenido externo", () => {
       `Programa 05 APORTE FISCAL LIBRE\n${nombre}\n Miles de $\n 21 Servicio ${monto}\n`;
     expect(leerRecorte(base("99.999.999.999", "MINISTERIO DE SALUD"))).toBeNull();
     expect(leerRecorte(base("1.000.000", "MINISTERIO <img src=x>"))).toBeNull();
+  });
+});
+
+describe("recorte vs. aumento (columnas del decreto)", () => {
+  // Tabla mínima con el mismo formato que los decretos de Dipres: el monto va alineado a la
+  // derecha, bajo "Incremento" o bajo "Reducción".
+  const tabla = (columna) => {
+    const cab = " 27                   APORTE FISCAL LIBRE                                         Incremento Reducción";
+    const finInc = cab.indexOf("Incremento") + "Incremento".length;
+    const finRed = cab.length;
+    const num = "32.721.556";
+    const fila = "         21           Subsecretaría de Servicios Sociales".padEnd((columna === "Reducción" ? finRed : finInc) - num.length) + num;
+    return [
+      "Programa  05 APORTE FISCAL LIBRE",
+      "Sub Item Asig SubA    Denominación                                                        Miles de $",
+      cab,
+      "                      MINISTERIO DE DESARROLLO SOCIAL Y FAMILIA",
+      fila,
+    ].join("\n");
+  };
+
+  it("publica el monto cuando está en la columna Reducción", () => {
+    expect(leerRecorte(tabla("Reducción"))).toEqual({ organismo: "Ministerio de Desarrollo Social y Familia", montoMillones: 32722 });
+  });
+
+  it("NO lo publica como recorte cuando está en la columna Incremento", () => {
+    expect(leerRecorte(tabla("Incremento"))).toBeNull();
+  });
+
+  it("detecta la columna en el decreto real N°331", () => {
+    const lineas = fixture("0331").split(/\r?\n/);
+    expect(columnaDelMonto(lineas, lineas.findIndex((l) => /Programa\s+05/.test(l)))).toBe("Reducción");
   });
 });

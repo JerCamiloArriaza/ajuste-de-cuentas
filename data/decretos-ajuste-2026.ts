@@ -3,8 +3,8 @@ import type { Proyecto } from "@/lib/tipos";
 /*
  * Decretos de Hacienda de 2026 que aplican el ajuste fiscal del Oficio Circular N°12
  * (13-03-2026). Montos en millones de pesos, tomados de la sección "Aporte Fiscal Libre"
- * de cada decreto publicado por Dipres. Generado a partir de los PDF oficiales; los
- * marcados `verificado: false` deben revisarse a mano contra el PDF.
+ * de cada decreto publicado por Dipres. Verificados uno por uno contra el PDF de Dipres y el listado oficial (número, fechas, organismo,
+ * monto y columna "Reducción"). Un decreto solo entra aquí si REDUCE el aporte fiscal.
  */
 
 const CIRCULAR_12 = {
@@ -33,13 +33,13 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-12", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-330-2026",
     titulo: "Recorte de $141.144 millones: Ministerio de Trabajo y Previsión Social",
     resumen:
-      "El Decreto N°330 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $141.144 millones el aporte fiscal de 2026 para el Ministerio de Trabajo y Previsión Social. Afecta a el Instituto de Previsión Social (IPS), la Dirección del Trabajo y Sence, entre otros.",
+      "El Decreto N°330 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $141.144 millones el aporte fiscal de 2026 para el Ministerio de Trabajo y Previsión Social. Afecta al Instituto de Previsión Social (IPS), la Dirección del Trabajo y Sence, entre otros.",
     area: "Trabajo y previsión",
     ministerio: "Ministerio de Trabajo y Previsión Social",
     tipo: "recorte",
@@ -54,13 +54,13 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-331-2026",
     titulo: "Recorte de $32.722 millones: Ministerio de Desarrollo Social y Familia",
     resumen:
-      "El Decreto N°331 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $32.722 millones el aporte fiscal de 2026 para el Ministerio de Desarrollo Social y Familia. Afecta a el Servicio de Protección Especializada a la Niñez, Conadi, Injuv, Senadis y la Subsecretaría de la Niñez. La prensa informa que incluye $1.850 millones menos para el Programa de Apoyo al Recién Nacido (ajuar). El Gobierno sostiene que el recorte no afecta beneficios directos y se ajusta al gasto real.",
+      "El Decreto N°331 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $32.722 millones el aporte fiscal de 2026 para el Ministerio de Desarrollo Social y Familia. Afecta al Servicio de Protección Especializada a la Niñez, Conadi, Injuv, Senadis y la Subsecretaría de la Niñez. La prensa informa que incluye $1.850 millones menos para el Programa de Apoyo al Recién Nacido (ajuar). El Gobierno sostiene que el recorte no afecta beneficios directos y se ajusta al gasto real.",
     area: "Niñez y protección social",
     ministerio: "Ministerio de Desarrollo Social y Familia",
     tipo: "recorte",
@@ -82,7 +82,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     id: "decreto-332-2026",
     titulo: "Recorte de $21.951 millones: Ministerio de Justicia y Derechos Humanos",
     resumen:
-      "El Decreto N°332 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $21.951 millones el aporte fiscal de 2026 para el Ministerio de Justicia y Derechos Humanos. Afecta a el Servicio Médico Legal, la Defensoría Penal Pública y el Servicio de Reinserción Social Juvenil, entre otros.",
+      "El Decreto N°332 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $21.951 millones el aporte fiscal de 2026 para el Ministerio de Justicia y Derechos Humanos. Afecta al Servicio Médico Legal, la Defensoría Penal Pública y el Servicio de Reinserción Social Juvenil, entre otros.",
     area: "Justicia",
     ministerio: "Ministerio de Justicia y Derechos Humanos",
     tipo: "recorte",
@@ -97,7 +97,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-08-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-333-2026",
@@ -140,13 +140,13 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-335-2026",
     titulo: "Recorte de $131.188 millones: Ministerio de Obras Públicas",
     resumen:
-      "El Decreto N°335 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $131.188 millones el aporte fiscal de 2026 para el Ministerio de Obras Públicas. Afecta a principalmente la Dirección General de Obras Públicas.",
+      "El Decreto N°335 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $131.188 millones el aporte fiscal de 2026 para el Ministerio de Obras Públicas. Afecta principalmente a la Dirección General de Obras Públicas.",
     area: "Obras públicas",
     ministerio: "Ministerio de Obras Públicas",
     tipo: "recorte",
@@ -161,7 +161,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-13", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-336-2026",
@@ -182,13 +182,13 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-337-2026",
     titulo: "Recorte de $56.162 millones: Ministerio de Transportes y Telecomunicaciones",
     resumen:
-      "El Decreto N°337 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $56.162 millones el aporte fiscal de 2026 para el Ministerio de Transportes y Telecomunicaciones. Afecta a principalmente la Subsecretaría de Transportes.",
+      "El Decreto N°337 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $56.162 millones el aporte fiscal de 2026 para el Ministerio de Transportes y Telecomunicaciones. Afecta principalmente a la Subsecretaría de Transportes.",
     area: "Transporte",
     ministerio: "Ministerio de Transportes y Telecomunicaciones",
     tipo: "recorte",
@@ -203,7 +203,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-338-2026",
@@ -224,7 +224,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-339-2026",
@@ -245,7 +245,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-06-30", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-340-2026",
@@ -266,7 +266,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-12", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-341-2026",
@@ -287,7 +287,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-342-2026",
@@ -308,7 +308,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-12", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-343-2026",
@@ -329,13 +329,13 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-13", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-344-2026",
     titulo: "Recorte de $5.743 millones: Ministerio del Deporte",
     resumen:
-      "El Decreto N°344 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $5.743 millones el aporte fiscal de 2026 para el Ministerio del Deporte. Afecta a principalmente el Instituto Nacional de Deportes.",
+      "El Decreto N°344 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $5.743 millones el aporte fiscal de 2026 para el Ministerio del Deporte. Afecta principalmente a el Instituto Nacional de Deportes.",
     area: "Deporte",
     ministerio: "Ministerio del Deporte",
     tipo: "recorte",
@@ -350,7 +350,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-12", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-345-2026",
@@ -371,7 +371,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-12", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-346-2026",
@@ -392,13 +392,13 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-12", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-347-2026",
     titulo: "Recorte de $2.898 millones: Ministerio del Medio Ambiente",
     resumen:
-      "El Decreto N°347 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $2.898 millones el aporte fiscal de 2026 para el Ministerio del Medio Ambiente. Afecta a el SEA, la Superintendencia del Medio Ambiente y el Servicio de Biodiversidad y Áreas Protegidas.",
+      "El Decreto N°347 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $2.898 millones el aporte fiscal de 2026 para el Ministerio del Medio Ambiente. Afecta al SEA, la Superintendencia del Medio Ambiente y el Servicio de Biodiversidad y Áreas Protegidas.",
     area: "Medioambiente y energía",
     ministerio: "Ministerio del Medio Ambiente",
     tipo: "recorte",
@@ -413,7 +413,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-349-2026",
@@ -434,13 +434,13 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-350-2026",
     titulo: "Recorte de $150.379 millones: Tesoro Público (subsidios y prestaciones)",
     resumen:
-      "El Decreto N°350 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $150.379 millones el aporte fiscal de 2026 para el Tesoro Público (subsidios y prestaciones). Afecta a subsidios y prestaciones administrados por el Tesoro Público, como el Fondo Único de Prestaciones Familiares y Subsidios de Cesantía.",
+      "El Decreto N°350 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $150.379 millones el aporte fiscal de 2026 para el Tesoro Público (subsidios y prestaciones). Afecta a subsidios y prestaciones administrados por el Tesoro Público, como el Fondo Único de Prestaciones Familiares y Subsidios de Cesantía, el beneficio de la Ley 20.330 para deudores de crédito universitario, el Fondo de Seguro Social de los Empleados Públicos y la Garantía Estatal de Pensiones Mínimas.",
     area: "Trabajo y previsión",
     ministerio: "Tesoro Público (subsidios y prestaciones)",
     tipo: "recorte",
@@ -455,7 +455,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-351-2026",
@@ -476,7 +476,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-04-24", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-14", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-371-2026",
@@ -497,7 +497,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-05-12", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-07-20", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-372-2026",
@@ -518,28 +518,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-05-12", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-06-02", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
-  },
-  {
-    id: "decreto-373-2026",
-    titulo: "Recorte de $1.137 millones: Ministerio de Bienes Nacionales",
-    resumen:
-      "El Decreto N°373 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $1.137 millones el aporte fiscal de 2026 para el Ministerio de Bienes Nacionales. Afecta a compras de terrenos de Bienes Nacionales.",
-    area: "Otra",
-    ministerio: "Ministerio de Bienes Nacionales",
-    tipo: "recorte",
-    estado: "aprobado",
-    fecha: "2026-05-29",
-    montoMillones: 1137,
-    fuentes: [
-      { titulo: "Decreto N°373 de 2026, Ministerio de Hacienda (Dipres)", url: "https://www.dipres.gob.cl/Decretos/2026/0373_TR.pdf", tipo: "oficial" },
-      CIRCULAR_12,
-    ],
-    historial: [
-      { fecha: "2026-05-12", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
-      { fecha: "2026-05-29", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
-    ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-374-2026",
@@ -560,7 +539,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-05-12", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-05-25", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
   {
     id: "decreto-394-2026",
@@ -581,6 +560,6 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
       { fecha: "2026-05-20", estado: "en_proceso", nota: "Hacienda firma el decreto y lo envía a Contraloría." },
       { fecha: "2026-06-08", estado: "aprobado", nota: "Contraloría toma razón; el recorte queda vigente." },
     ],
-    verificado: false,
+    verificado: true,
   },
 ];

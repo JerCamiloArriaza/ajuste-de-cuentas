@@ -39,6 +39,18 @@ export default function Metodologia() {
             documento oficial enlazado.
           </li>
           <li>
+            Una ficha sin la etiqueta “Por verificar” fue contrastada cifra por cifra con el
+            documento oficial: el decreto publicado por Dipres, la tabla “Cuadro Comparativo
+            Analítico 2026-2027” del proyecto de Presupuestos o el comunicado de la Cámara o del
+            Senado. Cuando la prensa informó una cifra distinta a la oficial, la ficha lo dice y
+            prevalece la cifra oficial.
+          </li>
+          <li>
+            Los montos de Presupuestos 2027 comparan la ley de 2026 con el proyecto, ambos en pesos de
+            2027, igual que Dipres. Por eso pueden diferir de cifras de prensa que comparan pesos
+            nominales.
+          </li>
+          <li>
             Mientras el Presupuesto 2027 se tramita en el Congreso, sus recortes figuran como “En
             proceso”. Pasan a “Eliminado” o “Aprobado” cuando se publica la ley.
           </li>

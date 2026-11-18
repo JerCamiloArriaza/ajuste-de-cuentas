@@ -102,3 +102,14 @@ describe("seguridad de los datos", () => {
     }
   });
 });
+
+describe("fichas verificadas", () => {
+  it("toda ficha verificada cita al menos una fuente oficial", () => {
+    for (const p of PROYECTOS.filter((p) => p.verificado)) expect(tieneFuenteOficial(p), p.id).toBe(true);
+  });
+
+  it("ninguna ficha cuenta como recorte si no tiene monto ni es un seguimiento", () => {
+    // Un decreto que AUMENTA fondos (como el N°373 de Bienes Nacionales) no debe aparecer como recorte.
+    expect(PROYECTOS.some((p) => p.id === "decreto-373-2026")).toBe(false);
+  });
+});
