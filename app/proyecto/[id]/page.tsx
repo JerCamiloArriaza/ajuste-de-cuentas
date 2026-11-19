@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Compartir } from "@/components/Compartir";
 import { AvisoPorVerificar, EtiquetaEstado } from "@/components/EtiquetaEstado";
-import { buscarPorId, formatearFecha, formatearMonto, publicados } from "@/lib/proyectos";
+import { ComparacionCambio } from "@/components/ComparacionCambio";
+import { buscarPorId, formatearFecha, formatearMonto, publicados, resumenTarjeta } from "@/lib/proyectos";
 import { ESTADOS, TIPOS } from "@/lib/tipos";
 import { esUrlSegura } from "@/lib/urls";
 
@@ -19,9 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const titulo = `${ESTADOS[p.estado].nombre}: ${p.titulo}`;
   return {
     title: titulo,
-    description: p.resumen,
-    openGraph: { title: titulo, description: p.resumen, type: "article" },
-    twitter: { card: "summary_large_image", title: titulo, description: p.resumen },
+    description: resumenTarjeta(p),
+    openGraph: { title: titulo, description: resumenTarjeta(p), type: "article" },
+    twitter: { card: "summary_large_image", title: titulo, description: resumenTarjeta(p) },
   };
 }
 
@@ -46,8 +47,12 @@ export default async function Ficha({ params }: Props) {
           {TIPOS[p.tipo]} · {p.area} · {p.ministerio} · Actualizado el{" "}
           <time dateTime={p.fecha}>{formatearFecha(p.fecha)}</time>
         </p>
-        {p.montoMillones && (
-          <p className="mt-3 text-3xl font-bold tracking-tight">{formatearMonto(p.montoMillones)}</p>
+        {p.comparacion ? (
+          <div className="mt-4">
+            <ComparacionCambio c={p.comparacion} grande />
+          </div>
+        ) : (
+          p.montoMillones && <p className="mt-3 text-3xl font-bold tracking-tight">{formatearMonto(p.montoMillones)}</p>
         )}
         <p className="mt-4">{p.resumen}</p>
       </div>

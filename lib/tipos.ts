@@ -10,6 +10,15 @@ export const TIPOS: Record<Tipo, string> = {
   otro: "Seguimiento",
 };
 
+export type Comparacion = {
+  /** Qué se está comparando, p. ej. "Fondo de Tierras y Aguas Indígenas". */
+  etiqueta: string;
+  /** Ley de Presupuestos 2026, en millones de pesos de 2027 (como compara Dipres). */
+  antes: number;
+  /** Proyecto de Presupuestos 2027, en millones de pesos de 2027. */
+  despues: number;
+};
+
 export type Fuente = {
   titulo: string;
   url: string;
@@ -34,6 +43,10 @@ export type Proyecto = {
   fecha: string; // fecha del último cambio, AAAA-MM-DD
   /** Monto recortado o eliminado, en millones de pesos (si se conoce). */
   montoMillones?: number;
+  /** Frase breve para la tarjeta de la portada (si falta, se usa la primera frase del resumen). */
+  resumenCorto?: string;
+  /** Comparación "antes → después" que se muestra destacada, en millones de pesos de 2027. */
+  comparacion?: Comparacion;
   fuentes: Fuente[];
   historial: CambioEstado[];
   /** false = las cifras vienen de prensa y falta confirmarlas en el documento oficial. */

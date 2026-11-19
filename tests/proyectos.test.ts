@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contarPorEstado, filtrar, formatearMonto, publicados, tieneFuenteOficial, totales } from "@/lib/proyectos";
+import { contarPorEstado, esDecreto, filtrar, formatearMonto, formatearPct, nombreCorto, publicados, resumenTarjeta, tieneFuenteOficial, totales, variacionPct } from "@/lib/proyectos";
 import type { Proyecto } from "@/lib/tipos";
 import { PROYECTOS } from "@/data/proyectos";
 import { esUrlSegura } from "@/lib/urls";
@@ -111,5 +111,58 @@ describe("fichas verificadas", () => {
   it("ninguna ficha cuenta como recorte si no tiene monto ni es un seguimiento", () => {
     // Un decreto que AUMENTA fondos (como el N°373 de Bienes Nacionales) no debe aparecer como recorte.
     expect(PROYECTOS.some((p) => p.id === "decreto-373-2026")).toBe(false);
+  });
+});
+
+describe("vista de la portada", () => {
+  it("las comparaciones tienen cifras coherentes", () => {
+    for (const p of PROYECTOS.filter((p) => p.comparacion)) {
+      const c = p.comparacion!;
+      expect(c.antes, p.id).toBeGreaterThan(0);
+      expect(c.despues, p.id).toBeGreaterThanOrEqual(0);
+    }
+  });
+
+  it("calcula y formatea la variación", () => {
+    expect(variacionPct({ etiqueta: "x", antes: 100, despues: 80 })).toBe(-20);
+    expect(formatearPct(-23.5)).toBe("−23,5%");
+    expect(formatearPct(19.5)).toBe("+19,5%");
+    expect(formatearPct(-100)).toBe("−100%");
+  });
+
+  it("distingue decretos de las demás fichas y arma el texto de tarjeta", () => {
+    const decreto = proyecto({ id: "decreto-1-2026", resumen: "El Decreto reduce fondos. Afecta a Fonasa y al ISP. Otro texto." });
+    expect(esDecreto(decreto)).toBe(true);
+    expect(resumenTarjeta(decreto)).toBe("Afecta a Fonasa y al ISP.");
+    expect(resumenTarjeta(proyecto({ resumen: "Primera frase. Segunda frase." }))).toBe("Primera frase.");
+    expect(resumenTarjeta(proyecto({ resumenCorto: "Corto.", resumen: "Largo. Muy largo." }))).toBe("Corto.");
+  });
+
+  it("filtra por tipo y ministerio", () => {
+    const lista = [
+      proyecto({ id: "1", tipo: "recorte", ministerio: "Ministerio de Salud" }),
+      proyecto({ id: "2", tipo: "retiro", ministerio: "Ministerio de Educación" }),
+    ];
+    expect(filtrar(lista, { tipo: "retiro" }).map((p) => p.id)).toEqual(["2"]);
+    expect(filtrar(lista, { ministerio: "Ministerio de Salud" }).map((p) => p.id)).toEqual(["1"]);
+  });
+
+  it("no hay ministerios ni áreas duplicados por variantes de escritura", () => {
+    const ministerios = new Set(PROYECTOS.map((p) => p.ministerio));
+    expect(ministerios.has("Ministerio de Hacienda (Dipres)")).toBe(false);
+    expect(ministerios.has("Ministerio de Trabajo y Previsión Social")).toBe(false);
+    const areas = new Set(PROYECTOS.map((p) => p.area));
+    expect(areas.has("Otra")).toBe(false);
+  });
+});
+
+describe("nombres cortos", () => {
+  it("acorta los ministerios para ranking y filtros", () => {
+    expect(nombreCorto("Ministerio de Salud")).toBe("Salud");
+    expect(nombreCorto("Ministerio del Trabajo y Previsión Social")).toBe("Trabajo y previsión");
+    expect(nombreCorto("Ministerio de las Culturas, las Artes y el Patrimonio")).toBe("Culturas y Patrimonio");
+    expect(nombreCorto("Ministerio Secretaría General de Gobierno")).toBe("Segegob");
+    expect(nombreCorto("Tesoro Público (subsidios y prestaciones)")).toBe("Tesoro Público");
+    expect(nombreCorto("Servicio Electoral")).toBe("Servicio Electoral");
   });
 });

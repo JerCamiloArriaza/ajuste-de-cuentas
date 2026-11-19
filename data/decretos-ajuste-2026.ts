@@ -41,7 +41,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     resumen:
       "El Decreto N°330 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $141.144 millones el aporte fiscal de 2026 para el Ministerio de Trabajo y Previsión Social. Afecta al Instituto de Previsión Social (IPS), la Dirección del Trabajo y Sence, entre otros.",
     area: "Trabajo y previsión",
-    ministerio: "Ministerio de Trabajo y Previsión Social",
+    ministerio: "Ministerio del Trabajo y Previsión Social",
     tipo: "recorte",
     estado: "aprobado",
     fecha: "2026-05-14",
@@ -83,7 +83,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $21.951 millones: Ministerio de Justicia y Derechos Humanos",
     resumen:
       "El Decreto N°332 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $21.951 millones el aporte fiscal de 2026 para el Ministerio de Justicia y Derechos Humanos. Afecta al Servicio Médico Legal, la Defensoría Penal Pública y el Servicio de Reinserción Social Juvenil, entre otros.",
-    area: "Justicia",
+    area: "Seguridad y justicia",
     ministerio: "Ministerio de Justicia y Derechos Humanos",
     tipo: "recorte",
     estado: "aprobado",
@@ -168,7 +168,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $30.469 millones: Ministerio de Agricultura",
     resumen:
       "El Decreto N°336 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $30.469 millones el aporte fiscal de 2026 para el Ministerio de Agricultura. Afecta a Indap, el SAG y otros servicios.",
-    area: "Agricultura",
+    area: "Economía y producción",
     ministerio: "Ministerio de Agricultura",
     tipo: "recorte",
     estado: "aprobado",
@@ -210,7 +210,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $7.759 millones: Ministerio de Economía, Fomento y Turismo",
     resumen:
       "El Decreto N°338 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $7.759 millones el aporte fiscal de 2026 para el Ministerio de Economía, Fomento y Turismo. Afecta a Sernac, Pesca, INE, Sernatur y otros servicios.",
-    area: "Economía",
+    area: "Economía y producción",
     ministerio: "Ministerio de Economía, Fomento y Turismo",
     tipo: "recorte",
     estado: "aprobado",
@@ -252,7 +252,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $1.634 millones: Ministerio de Relaciones Exteriores",
     resumen:
       "El Decreto N°340 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $1.634 millones el aporte fiscal de 2026 para el Ministerio de Relaciones Exteriores. Afecta a varios servicios (además de US$7,9 millones en moneda extranjera).",
-    area: "Otra",
+    area: "Estado y gobierno",
     ministerio: "Ministerio de Relaciones Exteriores",
     tipo: "recorte",
     estado: "aprobado",
@@ -273,7 +273,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $994 millones: Ministerio Secretaría General de Gobierno",
     resumen:
       "El Decreto N°341 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $994 millones el aporte fiscal de 2026 para el Ministerio Secretaría General de Gobierno. Afecta a la Segegob y el Consejo Nacional de Televisión.",
-    area: "Otra",
+    area: "Estado y gobierno",
     ministerio: "Ministerio Secretaría General de Gobierno",
     tipo: "recorte",
     estado: "aprobado",
@@ -294,7 +294,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $707 millones: Presidencia de la República",
     resumen:
       "El Decreto N°342 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $707 millones el aporte fiscal de 2026 para la Presidencia de la República. Afecta a gastos en personal de la Presidencia.",
-    area: "Otra",
+    area: "Estado y gobierno",
     ministerio: "Presidencia de la República",
     tipo: "recorte",
     estado: "aprobado",
@@ -357,7 +357,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $372 millones: Ministerio Secretaría General de la Presidencia",
     resumen:
       "El Decreto N°345 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $372 millones el aporte fiscal de 2026 para el Ministerio Secretaría General de la Presidencia. Afecta a la Segpres.",
-    area: "Otra",
+    area: "Estado y gobierno",
     ministerio: "Ministerio Secretaría General de la Presidencia",
     tipo: "recorte",
     estado: "aprobado",
@@ -378,7 +378,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $1.643 millones: Ministerio de Minería",
     resumen:
       "El Decreto N°346 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $1.643 millones el aporte fiscal de 2026 para el Ministerio de Minería. Afecta a Cochilco y Sernageomin.",
-    area: "Otra",
+    area: "Economía y producción",
     ministerio: "Ministerio de Minería",
     tipo: "recorte",
     estado: "aprobado",
@@ -420,7 +420,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $1.173 millones: Servicio Electoral",
     resumen:
       "El Decreto N°349 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $1.173 millones el aporte fiscal de 2026 para el Servicio Electoral. Afecta a gastos en personal del Servel.",
-    area: "Otra",
+    area: "Estado y gobierno",
     ministerio: "Servicio Electoral",
     tipo: "recorte",
     estado: "aprobado",
@@ -483,7 +483,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $20.059 millones: Ministerio del Interior y Seguridad Pública",
     resumen:
       "El Decreto N°371 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $20.059 millones el aporte fiscal de 2026 para el Ministerio del Interior y Seguridad Pública. Afecta a Senapred, Subdere, Senda, Migraciones y otros servicios.",
-    area: "Otra",
+    area: "Seguridad y justicia",
     ministerio: "Ministerio del Interior y Seguridad Pública",
     tipo: "recorte",
     estado: "aprobado",
@@ -504,7 +504,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $21.930 millones: Ministerio de Hacienda",
     resumen:
       "El Decreto N°372 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $21.930 millones el aporte fiscal de 2026 para el Ministerio de Hacienda. Afecta a SII, Aduanas, Tesorería, ChileCompra y otros servicios.",
-    area: "Otra",
+    area: "Estado y gobierno",
     ministerio: "Ministerio de Hacienda",
     tipo: "recorte",
     estado: "aprobado",
@@ -525,7 +525,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     titulo: "Recorte de $3.281 millones: Gobiernos Regionales",
     resumen:
       "El Decreto N°374 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $3.281 millones el aporte fiscal de 2026 para los Gobiernos Regionales. Afecta a aportes a gobiernos regionales.",
-    area: "Regiones",
+    area: "Regiones y municipios",
     ministerio: "Gobiernos Regionales",
     tipo: "recorte",
     estado: "aprobado",
