@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import { RegistrarServicio } from "@/components/RegistrarServicio";
 import { enlaceCorreccion } from "@/lib/sitio";
 import "./globals.css";
 
@@ -35,11 +36,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
         <main className="mx-auto max-w-3xl px-4 py-6">{children}</main>
+        <RegistrarServicio />
         <footer className="mx-auto max-w-3xl px-4 pb-10 text-xs text-stone-500">
           Proyecto ciudadano sin fines de lucro. Cada registro enlaza a su fuente oficial y se
           actualiza a diario.{" "}
           <Link href="/metodologia" className="underline">
             Cómo trabajamos
+          </Link>
+          .{" "}
+          <Link href="/metodologia#instalar" className="underline">
+            Instalar en tu celular
           </Link>
           . ¿Ves un error?{" "}
           <a href={enlaceCorreccion()} target="_blank" rel="noopener noreferrer" className="underline">

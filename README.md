@@ -71,3 +71,12 @@ Cada ficha tiene un botón “Avisar de un error” que abre el formulario
 indicada. Los avisos llegan con la etiqueta `correccion`. Se revisan contra el documento oficial y,
 si corresponde, se corrige la ficha (el cambio queda en el historial público). Si una persona citada
 considera que su postura quedó mal resumida, se revisa con prioridad.
+
+## Instalación en el celular (PWA)
+
+La app es instalable: tiene manifiesto, íconos PNG de 192 y 512 píxeles (incluido uno "maskable" para
+Android), ícono para iPhone y un *service worker* mínimo en [`public/sw.js`](public/sw.js). Ese service
+worker **no guarda copias de las páginas ni de las cifras**: solo muestra [`public/offline.html`](public/offline.html)
+cuando no hay conexión, para no exponer datos desactualizados. Los íconos se generan con
+`python scripts/generar-iconos.py` (necesita Pillow).
+

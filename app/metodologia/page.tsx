@@ -87,6 +87,28 @@ export default function Metodologia() {
         </ul>
       </section>
 
+      <section id="instalar" className="space-y-2 text-sm">
+        <h2 className="text-lg font-semibold">Instalar la app en tu celular</h2>
+        <p>
+          Ajuste de Cuentas funciona como una app: se abre desde un ícono en tu pantalla, sin barra del
+          navegador. No pasa por ninguna tienda y no ocupa casi espacio.
+        </p>
+        <ul className="list-disc space-y-1 pl-5">
+          <li>
+            <strong>Android (Chrome):</strong> toca el menú ⋮ y elige “Instalar aplicación” o “Agregar a la
+            pantalla de inicio”.
+          </li>
+          <li>
+            <strong>iPhone (Safari):</strong> toca el botón Compartir y elige “Agregar a la pantalla de
+            inicio”.
+          </li>
+          <li>
+            Necesita internet: siempre muestra la información actualizada y no guarda copias de las cifras. Sin
+            conexión, la app te avisa en lugar de mostrar datos que podrían estar desactualizados.
+          </li>
+        </ul>
+      </section>
+
       <section className="space-y-2 text-sm">
         <h2 className="text-lg font-semibold">Correcciones</h2>
         <ul className="list-disc space-y-1 pl-5">
