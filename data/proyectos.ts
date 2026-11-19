@@ -1,5 +1,6 @@
 import type { Proyecto } from "@/lib/tipos";
 import automaticos from "./automaticos.json";
+import { conPosturas } from "./posturas";
 import { DECRETOS_AJUSTE_2026 } from "./decretos-ajuste-2026";
 
 /*
@@ -66,7 +67,7 @@ const CAMARA_DESARROLLO_SOCIAL = {
   tipo: "oficial",
 } as const;
 
-export const PROYECTOS: Proyecto[] = [
+const FICHAS: Proyecto[] = [
   {
     id: "presupuesto-2027-yo-elijo-mi-pc",
     titulo: "Fin del programa “Yo Elijo mi PC” (notebooks para estudiantes)",
@@ -124,7 +125,7 @@ export const PROYECTOS: Proyecto[] = [
     id: "presupuesto-2027-liceos-bicentenario",
     titulo: "Liceos Bicentenario: baja 18,8% la transferencia corriente",
     resumen:
-      "Según la tabla oficial de Dipres, la asignación “Liceos Bicentenario de Excelencia” baja en sus transferencias corrientes de $2.058 millones a $1.672 millones (−18,8%, en pesos de 2027). Sus transferencias de capital se mantienen en $1.902 millones, así que el programa completo pasa de $3.960 a $3.574 millones (−9,7%). Una nota de prensa informó una baja de 46,7%; esa cifra no coincide con la tabla oficial. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Educación; como el Congreso no puede aumentar el gasto, solo el Gobierno puede reponer esos fondos.",
+      "Según la tabla oficial de Dipres, la asignación “Liceos Bicentenario de Excelencia” baja en sus transferencias corrientes de $2.058 millones a $1.672 millones (−18,8%, en pesos de 2027). Sus transferencias de capital se mantienen en $1.902 millones, así que el programa completo pasa de $3.960 a $3.574 millones (−9,7%). La Tercera (1-10-2026) informó una baja real de 46,71% para este programa; en la tabla oficial de Dipres esa variación corresponde a otra asignación, “Aporte único Ley N° 21.728 (Deuda Histórica)”, y no a Liceos Bicentenario. El 13 de noviembre la Cámara rechazó los gastos variables de la partida de Educación; como el Congreso no puede aumentar el gasto, solo el Gobierno puede reponer esos fondos.",
     resumenCorto: "Baja el financiamiento corriente de los Liceos Bicentenario de Excelencia.",
     area: "Educación",
     ministerio: "Ministerio de Educación",
@@ -134,6 +135,11 @@ export const PROYECTOS: Proyecto[] = [
     estado: "en_proceso",
     fecha: "2026-11-13",
     fuentes: [
+      {
+        titulo: "La Tercera – Kast responde por recortes a programas de Educación (1-10-2026)",
+        url: "https://www.latercera.com/nacional/noticia/kast-responde-por-recortes-a-programas-de-educacion-y-defiende-prioridades-del-presupuesto-2027/",
+        tipo: "prensa",
+      },
       cuadroDipres("Subsecretaría de Educación", 430883),
       CAMARA_PRESUPUESTO,
       DIPRES_OFERTA_2027,
@@ -326,7 +332,7 @@ export const PROYECTOS: Proyecto[] = [
     id: "retiro-proyecto-negociacion-ramal",
     titulo: "Retiro del proyecto de negociación colectiva ramal (multinivel)",
     resumen:
-      "El Gobierno retiró del Congreso el proyecto que permitía negociar colectivamente por sector o rama de la economía, ingresado en enero de 2026 por el gobierno anterior. El Presidente dijo que no es urgente y que la prioridad es el empleo. La CUT y la oposición lo criticaron.",
+      "El Gobierno retiró del Congreso el proyecto que permitía negociar colectivamente por sector o rama de la economía, ingresado en enero de 2026 por el gobierno anterior. El Presidente dijo que no es urgente hoy y que las prioridades son la seguridad y el empleo. Según El Mostrador, la decisión generó críticas de la oposición.",
     resumenCorto: "El Gobierno retiró del Congreso el proyecto de negociación colectiva ramal.",
     area: "Trabajo y previsión",
     ministerio: "Ministerio del Trabajo y Previsión Social",
@@ -334,6 +340,11 @@ export const PROYECTOS: Proyecto[] = [
     estado: "eliminado",
     fecha: "2026-03-17",
     fuentes: [
+      {
+        titulo: "El Mostrador – Presidente Kast defiende retiro de decretos ambientales y negociación ramal (17-3-2026)",
+        url: "https://www.elmostrador.cl/noticias/pais/2026/03/17/presidente-kast-defiende-retiro-de-decretos-ambientales-y-negociacion-ramal-no-es-urgente-hoy-dia/",
+        tipo: "prensa",
+      },
       {
         titulo: "Senado – Tramitación del boletín 18044-13 (estado: Retirado)",
         url: "https://tramitacion.senado.cl/appsenado/templates/tramitacion/index.php?boletin_ini=18044",
@@ -355,7 +366,7 @@ export const PROYECTOS: Proyecto[] = [
     id: "retiro-nueva-ley-de-pesca",
     titulo: "Retiro del proyecto de nueva Ley General de Pesca",
     resumen:
-      "El Gobierno retiró el proyecto que reemplazaba la actual Ley de Pesca (“Ley Longueira”). Llevaba dos años en el Congreso y tenía votados en comisión 11 de sus 12 títulos. El Ejecutivo anunció que en su lugar propondrá modificar la ley vigente. Parlamentarios de oposición y del Senado criticaron la decisión.",
+      "El Gobierno retiró el proyecto de nueva Ley General de Pesca, ingresado en enero de 2024 para reemplazar la actual ley, conocida como “Ley Longueira”. El proyecto ya estaba aprobado en general en el Congreso. La Subsecretaría de Pesca dijo que busca someterlo a un proceso de estudio y perfeccionamiento, sin desecharlo por completo. Parlamentarios de oposición criticaron la decisión por la falta de diálogo.",
     resumenCorto: "El Gobierno retiró el proyecto de nueva Ley de Pesca y prefiere reformar la ley vigente.",
     area: "Economía y producción",
     ministerio: "Ministerio de Economía, Fomento y Turismo",
@@ -384,7 +395,7 @@ export const PROYECTOS: Proyecto[] = [
     id: "retiro-43-decretos-ambientales",
     titulo: "Retiro de 43 decretos ambientales en trámite en Contraloría",
     resumen:
-      "El Ministerio del Medio Ambiente retiró de Contraloría 43 decretos pendientes. Entre ellos estaban la creación de parques nacionales (como Salar de Gorbea y Mar de Juan Fernández), planes de descontaminación y la protección de especies como el pingüino de Humboldt. El Gobierno dice que se trata de una revisión y que podrán reingresarse; uno ya volvió a ingresar. La oposición lo criticó.",
+      "El Ministerio del Medio Ambiente retiró de Contraloría 43 decretos pendientes que había ingresado el gobierno anterior. Entre ellos, según la prensa, estaban la creación de parques nacionales (como Salar de Gorbea y Mar de Juan Fernández), planes de descontaminación y la protección de especies como el pingüino de Humboldt. La ministra Francisca Toledo explicó ante la Comisión de Medio Ambiente de la Cámara que fue una revisión para evitar errores o incompatibilidades legales; informó que 37 de los 43 ingresaron entre enero y marzo de 2026 (13 de ellos el último día del gobierno anterior), que ya se reingresaron dos y que un tercero se reingresaría en los días siguientes. Diputados de oposición pidieron aclarar los criterios y plazos de reingreso.",
     resumenCorto: "Medio Ambiente retiró de Contraloría 43 decretos, entre ellos parques nacionales y protección de especies.",
     area: "Medioambiente y energía",
     ministerio: "Ministerio del Medio Ambiente",
@@ -392,6 +403,11 @@ export const PROYECTOS: Proyecto[] = [
     estado: "postergado",
     fecha: "2026-03-12",
     fuentes: [
+      {
+        titulo: "El Mostrador – Presidente Kast defiende retiro de decretos ambientales y negociación ramal (17-3-2026)",
+        url: "https://www.elmostrador.cl/noticias/pais/2026/03/17/presidente-kast-defiende-retiro-de-decretos-ambientales-y-negociacion-ramal-no-es-urgente-hoy-dia/",
+        tipo: "prensa",
+      },
       {
         titulo: "Cámara de Diputadas y Diputados – El Ejecutivo presenta su hoja de ruta ambiental",
         url: "https://www.camara.cl/cms/2026/03/25/ejecutivo-presento-hoja-de-ruta-en-materia-medioambiental/",
@@ -515,3 +531,6 @@ export const PROYECTOS: Proyecto[] = [
   // Detectados por el robot de revisión diaria (scripts/revisar.mjs).
   ...(automaticos as Proyecto[]),
 ];
+
+/** Fichas con sus posturas (explicación del Gobierno y críticas) ya unidas. */
+export const PROYECTOS: Proyecto[] = FICHAS.map(conPosturas);

@@ -103,7 +103,7 @@ export const DECRETOS_AJUSTE_2026: Proyecto[] = [
     id: "decreto-333-2026",
     titulo: "Recorte de $413.193 millones: Ministerio de Salud",
     resumen:
-      "El Decreto N°333 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $413.193 millones el aporte fiscal de 2026 para el Ministerio de Salud. Afecta a Fonasa, la Subsecretaría de Redes Asistenciales (hospitales) y el ISP, entre otros. El Minsal afirma que equivale al 1,1% de los recursos operacionales de los hospitales y que no afectará las atenciones; el Colegio Médico lo rechazó.",
+      "El Decreto N°333 de Hacienda, que aplica el ajuste fiscal del Oficio Circular N°12, reduce en $413.193 millones el aporte fiscal de 2026 para el Ministerio de Salud. Afecta a Fonasa, la Subsecretaría de Redes Asistenciales (hospitales) y el ISP, entre otros. El Minsal afirma que equivale, en promedio, al 1,1% de los recursos operacionales de los hospitales y que no afectará la atención directa.",
     area: "Salud",
     ministerio: "Ministerio de Salud",
     tipo: "recorte",

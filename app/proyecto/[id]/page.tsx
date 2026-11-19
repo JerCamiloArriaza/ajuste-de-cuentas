@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Compartir } from "@/components/Compartir";
 import { AvisoPorVerificar, EtiquetaEstado } from "@/components/EtiquetaEstado";
 import { ComparacionCambio } from "@/components/ComparacionCambio";
+import { Posturas } from "@/components/Posturas";
 import { buscarPorId, formatearFecha, formatearMonto, publicados, resumenTarjeta } from "@/lib/proyectos";
 import { ESTADOS, TIPOS } from "@/lib/tipos";
 import { esUrlSegura } from "@/lib/urls";
@@ -64,6 +65,8 @@ export default async function Ficha({ params }: Props) {
           automáticamente del documento.
         </p>
       )}
+
+      <Posturas justificacion={p.justificacionOficial} criticas={p.criticas} />
 
       <section>
         <h2 className="mb-3 text-lg font-semibold">Historial</h2>

@@ -19,6 +19,20 @@ export type Comparacion = {
   despues: number;
 };
 
+/** Lo que una persona o institución identificable dijo sobre una medida, con su fuente. */
+export type Postura = {
+  /** Quién lo dice: persona con su cargo, o institución. Nunca anónimo. */
+  autor: string;
+  /** Resumen fiel de lo dicho. Las citas textuales van entre comillas y son cortas. */
+  texto: string;
+  /** Dónde se dijo. Debe poder abrirse. */
+  fuente: Fuente;
+  /** Fecha en que se dijo, AAAA-MM-DD. */
+  fecha?: string;
+  /** "general" = explicación del Presupuesto o del ajuste en su conjunto, no de esta medida en particular. */
+  alcance?: "general";
+};
+
 export type Fuente = {
   titulo: string;
   url: string;
@@ -47,12 +61,18 @@ export type Proyecto = {
   resumenCorto?: string;
   /** Comparación "antes → después" que se muestra destacada, en millones de pesos de 2027. */
   comparacion?: Comparacion;
+  /** Cómo explica el Gobierno esta medida, con fuente. */
+  justificacionOficial?: Postura[];
+  /** Críticas y reparos de personas o instituciones identificables, con fuente. */
+  criticas?: Postura[];
   fuentes: Fuente[];
   historial: CambioEstado[];
   /** false = las cifras vienen de prensa y falta confirmarlas en el documento oficial. */
   verificado: boolean;
   /** true = creado por el robot de revisión diaria (scripts/revisar.mjs). */
   automatico?: boolean;
+  /** Referencia a una explicación oficial conocida; el sitio la convierte en `justificacionOficial`. */
+  justificacionRef?: "circular-12";
 };
 
 export const ESTADOS: Record<

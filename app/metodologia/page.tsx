@@ -58,6 +58,36 @@ export default function Metodologia() {
       </section>
 
       <section className="space-y-2 text-sm">
+        <h2 className="text-lg font-semibold">Qué dice el Gobierno y qué se critica</h2>
+        <ul className="list-disc space-y-1 pl-5">
+          <li>
+            Cada ficha separa la <strong>explicación del Gobierno</strong> de las <strong>críticas</strong>.
+            Ambas llevan quién lo dijo, qué dijo y la fuente donde se puede leer o escuchar.
+          </li>
+          <li>
+            Solo se incluyen personas o instituciones identificables, con su cargo. No se publican críticas
+            anónimas ni “fuentes cercanas”.
+          </li>
+          <li>
+            Se incorporan críticas de cualquier sector, también del oficialismo, y se indica cuando una
+            organización tiene vínculos políticos conocidos.
+          </li>
+          <li>
+            Los textos son resúmenes fieles; las citas textuales son breves y van entre comillas. Quien quiera
+            el detalle puede abrir la fuente.
+          </li>
+          <li>
+            “Explicación general” significa que el Gobierno o Dipres explicó el ajuste o el Presupuesto en su
+            conjunto, no esta medida en particular. Cuando una medida tiene su propia explicación, aparece aparte.
+          </li>
+          <li>
+            Si todavía no encontramos una explicación o una crítica con fuente, la ficha lo dice en lugar de
+            dejarlo en blanco.
+          </li>
+        </ul>
+      </section>
+
+      <section className="space-y-2 text-sm">
         <h2 className="text-lg font-semibold">Cómo se actualiza</h2>
         <ul className="list-disc space-y-1 pl-5">
           <li>

@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import { describe, expect, it } from "vitest";
-import { columnaDelMonto, esDecretoDeRecorte, fichaDeDecreto, leerListado, leerRecorte } from "../scripts/decretos.mjs";
+import { citaCircular12, columnaDelMonto, esDecretoDeRecorte, fichaDeDecreto, leerListado, leerRecorte } from "../scripts/decretos.mjs";
 
 const fixture = (n) => fs.readFileSync(new URL(`./fixtures/decreto-${n}.txt`, import.meta.url), "utf8");
 
@@ -96,5 +96,20 @@ describe("recorte vs. aumento (columnas del decreto)", () => {
   it("detecta la columna en el decreto real N°331", () => {
     const lineas = fixture("0331").split(/\r?\n/);
     expect(columnaDelMonto(lineas, lineas.findIndex((l) => /Programa\s+05/.test(l)))).toBe("Reducción");
+  });
+});
+
+describe("explicación oficial de los decretos automáticos", () => {
+  it("detecta la cita a la Circular 12", () => {
+    expect(citaCircular12("el Oficio Circular N°12 de 2026 del Ministerio de Hacienda")).toBe(true);
+    expect(citaCircular12("el Oficio Circular N° 120 de 2026")).toBe(false);
+    expect(citaCircular12("sin cita")).toBe(false);
+  });
+
+  it("la ficha lleva la referencia solo si el decreto cita la circular", () => {
+    const d = { numero: "0999", fecha: "2026-10-01", tramitado: "2026-10-05", url: "https://www.dipres.gob.cl/Decretos/2026/0999_TR.pdf" };
+    const r = { organismo: "Ministerio de Salud", montoMillones: 100 };
+    expect(fichaDeDecreto(d, r, { circular12: true }).justificacionRef).toBe("circular-12");
+    expect(fichaDeDecreto(d, r).justificacionRef).toBeUndefined();
   });
 });

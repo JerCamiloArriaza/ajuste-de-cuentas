@@ -123,8 +123,13 @@ export function nombrePropio(texto) {
     .join(" ");
 }
 
+/** ¿El decreto cita el Oficio Circular N°12 (ajuste fiscal de marzo de 2026)? */
+export function citaCircular12(texto) {
+  return /Oficio\s+Circular\s+N\W{0,3}\s*12(?!\d)/i.test(texto);
+}
+
 /** Ficha (en el formato de data/) para un decreto de recorte detectado automáticamente. */
-export function fichaDeDecreto({ numero, fecha, tramitado, url }, { organismo, montoMillones }) {
+export function fichaDeDecreto({ numero, fecha, tramitado, url }, { organismo, montoMillones }, { circular12 = false } = {}) {
   const n = Number(numero);
   const monto = montoMillones.toLocaleString("es-CL");
   const anio = fecha.slice(0, 4);
@@ -145,5 +150,7 @@ export function fichaDeDecreto({ numero, fecha, tramitado, url }, { organismo, m
     ],
     verificado: false,
     automatico: true,
+    // El sitio resuelve esta referencia a la explicación oficial (ver data/posturas.ts).
+    ...(circular12 ? { justificacionRef: "circular-12" } : {}),
   };
 }

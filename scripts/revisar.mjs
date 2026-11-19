@@ -14,7 +14,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { esDecretoDeRecorte, fichaDeDecreto, leerListado, leerRecorte } from "./decretos.mjs";
+import { citaCircular12, esDecretoDeRecorte, fichaDeDecreto, leerListado, leerRecorte } from "./decretos.mjs";
 import { claveTitular, esNoticiaRelevante } from "./noticias.mjs";
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
@@ -82,7 +82,7 @@ async function revisarDecretos(estado, automaticos, informe) {
         informe.decretosSinLeer.push(d);
         continue;
       }
-      const ficha = fichaDeDecreto(d, recorte);
+      const ficha = fichaDeDecreto(d, recorte, { circular12: citaCircular12(texto) });
       if (existentes.has(ficha.id)) continue;
       automaticos.push(ficha);
       existentes.add(ficha.id);

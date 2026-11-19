@@ -166,3 +166,39 @@ describe("nombres cortos", () => {
     expect(nombreCorto("Servicio Electoral")).toBe("Servicio Electoral");
   });
 });
+
+describe("posturas: explicación del Gobierno y críticas", () => {
+  const todas = PROYECTOS.flatMap((p) => [...(p.justificacionOficial ?? []), ...(p.criticas ?? [])].map((x) => ({ p, x })));
+
+  it("toda postura tiene autor, texto y una fuente que se puede abrir", () => {
+    expect(todas.length).toBeGreaterThan(30);
+    for (const { p, x } of todas) {
+      expect(x.autor.trim().length, p.id).toBeGreaterThan(3);
+      expect(x.texto.trim().length, `${p.id} / ${x.autor}`).toBeGreaterThan(30);
+      expect(esUrlSegura(x.fuente.url), `${p.id} / ${x.autor}`).toBe(true);
+      expect(x.fuente.titulo.trim().length, p.id).toBeGreaterThan(5);
+    }
+  });
+
+  it("los textos son resúmenes breves, no transcripciones", () => {
+    for (const { p, x } of todas) expect(x.texto.length, `${p.id} / ${x.autor}`).toBeLessThan(620);
+  });
+
+  it("no hay críticas anónimas", () => {
+    for (const p of PROYECTOS) {
+      for (const c of p.criticas ?? []) expect(/an[oó]nim|fuentes? (cercanas?|reservadas?)|se dice|algunos/i.test(c.autor), `${p.id} / ${c.autor}`).toBe(false);
+    }
+  });
+
+  it("todos los decretos de ajuste explican su origen en la Circular 12", () => {
+    for (const p of PROYECTOS.filter((p) => esDecreto(p))) {
+      expect(p.justificacionOficial?.some((x) => /Circular N°12/.test(x.autor)), p.id).toBe(true);
+    }
+  });
+
+  it("los decretos con más polémica incluyen críticas de distintos sectores", () => {
+    const salud = PROYECTOS.find((p) => p.id === "decreto-333-2026")!;
+    expect(salud.criticas!.length).toBeGreaterThanOrEqual(3);
+    expect(salud.justificacionOficial!.length).toBeGreaterThanOrEqual(2);
+  });
+});
