@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import { enlaceCorreccion } from "@/lib/sitio";
 import "./globals.css";
 
 const SITIO = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -40,6 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/metodologia" className="underline">
             Cómo trabajamos
           </Link>
+          . ¿Ves un error?{" "}
+          <a href={enlaceCorreccion()} target="_blank" rel="noopener noreferrer" className="underline">
+            Avísanos
+          </a>
           .
         </footer>
       </body>

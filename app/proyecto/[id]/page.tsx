@@ -5,6 +5,7 @@ import { Compartir } from "@/components/Compartir";
 import { AvisoPorVerificar, EtiquetaEstado } from "@/components/EtiquetaEstado";
 import { ComparacionCambio } from "@/components/ComparacionCambio";
 import { Posturas } from "@/components/Posturas";
+import { ReportarError } from "@/components/ReportarError";
 import { buscarPorId, formatearFecha, formatearMonto, publicados, resumenTarjeta } from "@/lib/proyectos";
 import { ESTADOS, TIPOS } from "@/lib/tipos";
 import { esUrlSegura } from "@/lib/urls";
@@ -109,6 +110,8 @@ export default async function Ficha({ params }: Props) {
         <h2 className="mb-3 text-lg font-semibold">Compartir</h2>
         <Compartir titulo={p.titulo} ruta={`/proyecto/${p.id}`} />
       </section>
+
+      <ReportarError titulo={p.titulo} ruta={`/proyecto/${p.id}`} />
     </article>
   );
 }

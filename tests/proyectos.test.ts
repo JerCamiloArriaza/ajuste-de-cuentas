@@ -1,3 +1,6 @@
+import fs from "node:fs";
+import path from "node:path";
+import { enlaceCorreccion, REPO_URL } from "@/lib/sitio";
 import { describe, expect, it } from "vitest";
 import { contarPorEstado, esDecreto, filtrar, formatearMonto, formatearPct, nombreCorto, publicados, resumenTarjeta, tieneFuenteOficial, totales, variacionPct } from "@/lib/proyectos";
 import type { Proyecto } from "@/lib/tipos";
@@ -200,5 +203,28 @@ describe("posturas: explicación del Gobierno y críticas", () => {
     const salud = PROYECTOS.find((p) => p.id === "decreto-333-2026")!;
     expect(salud.criticas!.length).toBeGreaterThanOrEqual(3);
     expect(salud.justificacionOficial!.length).toBeGreaterThanOrEqual(2);
+  });
+});
+
+describe("canal de correcciones", () => {
+  it("el enlace abre el formulario con la ficha ya rellenada", () => {
+    const url = new URL(enlaceCorreccion("Recorte de $413.193 millones: Salud", "/proyecto/decreto-333-2026"));
+    expect(url.origin + url.pathname).toBe(`${REPO_URL}/issues/new`);
+    expect(url.searchParams.get("template")).toBe("correccion.yml");
+    expect(url.searchParams.get("title")).toContain("Corrección: Recorte");
+    expect(url.searchParams.get("ficha")).toMatch(/^https:\/\/.+\/proyecto\/decreto-333-2026$/);
+  });
+
+  it("el enlace general no lleva ficha y nunca excede un largo razonable", () => {
+    const general = new URL(enlaceCorreccion());
+    expect(general.searchParams.has("ficha")).toBe(false);
+    expect(enlaceCorreccion("x".repeat(500), "/proyecto/a").length).toBeLessThan(600);
+  });
+
+  it("el formulario existe y tiene los campos que el enlace rellena", () => {
+    const yml = fs.readFileSync(path.resolve(__dirname, "../.github/ISSUE_TEMPLATE/correccion.yml"), "utf8");
+    expect(yml).toMatch(/id: ficha/);
+    expect(yml).toMatch(/labels: \["correccion"\]/);
+    expect(yml).toMatch(/datos personales/);
   });
 });

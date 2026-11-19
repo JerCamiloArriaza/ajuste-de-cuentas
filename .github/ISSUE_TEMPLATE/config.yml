@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Cómo verificamos y corregimos la información
+    url: https://ajuste-de-cuentas.vercel.app/metodologia
+    about: Lee nuestra metodología y la política de correcciones antes de avisar de un error.

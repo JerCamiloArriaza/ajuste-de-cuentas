@@ -88,6 +88,33 @@ export default function Metodologia() {
       </section>
 
       <section className="space-y-2 text-sm">
+        <h2 className="text-lg font-semibold">Correcciones</h2>
+        <ul className="list-disc space-y-1 pl-5">
+          <li>
+            Cada ficha tiene un botón “Avisar de un error”, y el pie de página también. Abre un formulario
+            público en GitHub, con la ficha ya indicada, para reportar una cifra, una fecha, una cita, una
+            postura o una fuente incorrecta.
+          </li>
+          <li>
+            Revisamos cada aviso contra el documento oficial. Si el aviso es correcto, corregimos la ficha; si
+            no, respondemos con la fuente que respalda lo publicado.
+          </li>
+          <li>
+            Si una persona o institución citada considera que su postura quedó mal resumida, puede avisarnos
+            por la misma vía y la revisamos con prioridad.
+          </li>
+          <li>
+            Toda corrección queda registrada públicamente en el historial del proyecto, con fecha y detalle de
+            lo que cambió.
+          </li>
+          <li>
+            El formulario es público: pedimos no incluir datos personales. Por ahora es la única vía y requiere
+            una cuenta gratuita de GitHub.
+          </li>
+        </ul>
+      </section>
+
+      <section className="space-y-2 text-sm">
         <h2 className="text-lg font-semibold">Cómo se actualiza</h2>
         <ul className="list-disc space-y-1 pl-5">
           <li>

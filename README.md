@@ -63,3 +63,11 @@ rama `main` (incluidos los del robot diario) se publica solo en un par de minuto
 
 - **Código:** MIT (ver [`LICENSE`](LICENSE)).
 - **Datos** de `data/`: CC BY 4.0, citando la fuente (ver [`LICENSE-DATOS.md`](LICENSE-DATOS.md)).
+
+## Correcciones
+
+Cada ficha tiene un botón “Avisar de un error” que abre el formulario
+[`.github/ISSUE_TEMPLATE/correccion.yml`](.github/ISSUE_TEMPLATE/correccion.yml) con la ficha ya
+indicada. Los avisos llegan con la etiqueta `correccion`. Se revisan contra el documento oficial y,
+si corresponde, se corrige la ficha (el cambio queda en el historial público). Si una persona citada
+considera que su postura quedó mal resumida, se revisa con prioridad.

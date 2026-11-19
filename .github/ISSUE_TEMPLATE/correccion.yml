@@ -1,0 +1,55 @@
+name: Corrección de una ficha
+description: Avísanos si una cifra, una fecha, una cita, una postura o una fuente está mal.
+title: "Corrección: "
+labels: ["correccion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por ayudarnos a mantener la información correcta.
+
+        **Este formulario es público.** No escribas datos personales (teléfono, correo, dirección).
+
+        Revisamos cada aviso contra el documento oficial y, si corresponde, corregimos la ficha. Los cambios quedan registrados públicamente en el historial del repositorio.
+  - type: input
+    id: ficha
+    attributes:
+      label: Dirección de la ficha
+      description: Copia la dirección de la página donde viste el error.
+      placeholder: https://ajuste-de-cuentas.vercel.app/proyecto/...
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: ¿Qué está mal?
+      options:
+        - Una cifra o un monto
+        - Una fecha
+        - Una cita o una postura atribuida a alguien
+        - Soy la persona citada y mi postura quedó mal resumida
+        - Una fuente o un enlace
+        - El estado de la medida (eliminado, postergado, en proceso o aprobado)
+        - Otra cosa
+    validations:
+      required: true
+  - type: textarea
+    id: detalle
+    attributes:
+      label: Qué dice la ficha y qué debería decir
+      description: Cuéntanos lo que viste y lo que, según tú, es lo correcto.
+    validations:
+      required: true
+  - type: input
+    id: respaldo
+    attributes:
+      label: Enlace al documento que respalda la corrección
+      description: Idealmente un documento oficial (decreto, tabla de Dipres, Senado o Cámara). Si no lo tienes, igual avísanos.
+      placeholder: https://...
+  - type: checkboxes
+    id: publico
+    attributes:
+      label: Confirmación
+      options:
+        - label: Entiendo que este aviso es público y que no incluí datos personales.
+          required: true
