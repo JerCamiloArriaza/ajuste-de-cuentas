@@ -1,0 +1,52 @@
+name: Avisos por cambios de estado
+
+# Se ejecuta cuando alguien (no el robot diario) cambia los datos y sube el cambio a main.
+# Los cambios del robot diario no activan este flujo: él mismo envía sus avisos al final de su corrida.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/proyectos.ts"
+      - "data/decretos-ajuste-2026.ts"
+      - "data/automaticos.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write # solo para guardar data/avisos-estado.json
+
+concurrency:
+  group: publicacion
+  cancel-in-progress: false
+
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Avisar a las personas suscritas
+        env:
+          PUSH_ADMIN_TOKEN: ${{ secrets.PUSH_ADMIN_TOKEN }}
+          SITE_URL: https://ajuste-de-cuentas.vercel.app
+        run: node scripts/avisar.mjs
+
+      - name: Guardar lo ya avisado
+        run: |
+          if [ -n "$(git status --porcelain data/avisos-estado.json)" ]; then
+            git config user.name "robot-ajuste-de-cuentas"
+            git config user.email "robot@users.noreply.github.com"
+            git add data/avisos-estado.json
+            git commit -m "Registro de avisos $(date +%F)"
+            git pull --rebase
+            git push
+          fi

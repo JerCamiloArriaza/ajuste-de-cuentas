@@ -80,3 +80,11 @@ worker **no guarda copias de las páginas ni de las cifras**: solo muestra [`pub
 cuando no hay conexión, para no exponer datos desactualizados. Los íconos se generan con
 `python scripts/generar-iconos.py` (necesita Pillow).
 
+## Avisos en el celular
+
+Las personas pueden activar notificaciones desde `/avisos` para enterarse cuando una medida es nueva o cambia
+de estado. Usa Web Push (clave VAPID), un pequeño servidor en `app/api/avisos/` y Upstash Redis para guardar
+las suscripciones. El robot (`scripts/avisar.mjs`) compara el estado publicado con `data/avisos-estado.json`,
+espera a que la web se actualice y pide el envío. Cómo activarlo: [`docs/activar-avisos.md`](docs/activar-avisos.md).
+Qué se guarda y cómo se protege: [`SECURITY.md`](SECURITY.md).
+

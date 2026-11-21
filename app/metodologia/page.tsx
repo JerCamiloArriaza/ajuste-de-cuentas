@@ -109,7 +109,7 @@ export default function Metodologia() {
         </ul>
       </section>
 
-      <section className="space-y-2 text-sm">
+      <section id="correcciones" className="space-y-2 text-sm">
         <h2 className="text-lg font-semibold">Correcciones</h2>
         <ul className="list-disc space-y-1 pl-5">
           <li>

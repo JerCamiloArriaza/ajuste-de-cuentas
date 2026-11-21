@@ -9,15 +9,15 @@ permissions:
   contents: write # solo para guardar los cambios de data/
   issues: write # solo para abrir el aviso diario
 
-# Nunca dos revisiones a la vez.
+# Nunca dos publicaciones a la vez (este flujo y el de avisos comparten el grupo).
 concurrency:
-  group: revision-diaria
+  group: publicacion
   cancel-in-progress: false
 
 jobs:
   revisar:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30 # los avisos esperan a que la web se actualice
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
@@ -47,8 +47,25 @@ jobs:
             git push
           fi
 
+      - name: Avisar a las personas suscritas
+        env:
+          PUSH_ADMIN_TOKEN: ${{ secrets.PUSH_ADMIN_TOKEN }}
+          SITE_URL: https://ajuste-de-cuentas.vercel.app
+        run: node scripts/avisar.mjs
+
+      - name: Guardar lo ya avisado
+        run: |
+          if [ -n "$(git status --porcelain data/avisos-estado.json)" ]; then
+            git config user.name "robot-ajuste-de-cuentas"
+            git config user.email "robot@users.noreply.github.com"
+            git add data/avisos-estado.json
+            git commit -m "Registro de avisos $(date +%F)"
+            git pull --rebase
+            git push
+          fi
+
       - name: Abrir aviso con lo que hay que revisar
-        if: hashFiles('informe-revision.md') != ''
+        if: ${{ !cancelled() && hashFiles('informe-revision.md') != '' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh issue create --title "Para revisar — $(date +%F)" --body-file informe-revision.md

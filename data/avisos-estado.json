@@ -1,0 +1,170 @@
+{
+  "decreto-329-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $200.203 millones: Ministerio de Vivienda y Urbanismo"
+  },
+  "decreto-330-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $141.144 millones: Ministerio de Trabajo y Previsión Social"
+  },
+  "decreto-331-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $32.722 millones: Ministerio de Desarrollo Social y Familia"
+  },
+  "decreto-332-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $21.951 millones: Ministerio de Justicia y Derechos Humanos"
+  },
+  "decreto-333-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $413.193 millones: Ministerio de Salud"
+  },
+  "decreto-334-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $5.576 millones: Ministerio de Energía"
+  },
+  "decreto-335-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $131.188 millones: Ministerio de Obras Públicas"
+  },
+  "decreto-336-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $30.469 millones: Ministerio de Agricultura"
+  },
+  "decreto-337-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $56.162 millones: Ministerio de Transportes y Telecomunicaciones"
+  },
+  "decreto-338-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $7.759 millones: Ministerio de Economía, Fomento y Turismo"
+  },
+  "decreto-339-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $17.664 millones: Ministerio de Ciencia, Tecnología, Conocimiento e Innovación"
+  },
+  "decreto-340-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $1.634 millones: Ministerio de Relaciones Exteriores"
+  },
+  "decreto-341-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $994 millones: Ministerio Secretaría General de Gobierno"
+  },
+  "decreto-342-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $707 millones: Presidencia de la República"
+  },
+  "decreto-343-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $2.742 millones: Ministerio de la Mujer y Equidad de Género"
+  },
+  "decreto-344-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $5.743 millones: Ministerio del Deporte"
+  },
+  "decreto-345-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $372 millones: Ministerio Secretaría General de la Presidencia"
+  },
+  "decreto-346-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $1.643 millones: Ministerio de Minería"
+  },
+  "decreto-347-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $2.898 millones: Ministerio del Medio Ambiente"
+  },
+  "decreto-349-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $1.173 millones: Servicio Electoral"
+  },
+  "decreto-350-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $150.379 millones: Tesoro Público (subsidios y prestaciones)"
+  },
+  "decreto-351-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $51.750 millones: Ministerio de las Culturas, las Artes y el Patrimonio"
+  },
+  "decreto-371-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $20.059 millones: Ministerio del Interior y Seguridad Pública"
+  },
+  "decreto-372-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $21.930 millones: Ministerio de Hacienda"
+  },
+  "decreto-374-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $3.281 millones: Gobiernos Regionales"
+  },
+  "decreto-394-2026": {
+    "estado": "aprobado",
+    "titulo": "Recorte de $75.473 millones: Ministerio de Educación"
+  },
+  "oficio-hacienda-descontinuar-142-programas": {
+    "estado": "en_proceso",
+    "titulo": "Hacienda pide a los ministerios evaluar descontinuar 142 programas"
+  },
+  "presupuesto-2027-becas-chile": {
+    "estado": "en_proceso",
+    "titulo": "Becas Chile: baja 5,4% y se elimina el curso de idiomas"
+  },
+  "presupuesto-2027-energia-siete-programas": {
+    "estado": "en_proceso",
+    "titulo": "Siete asignaciones de Energía quedan en $0 en 2027"
+  },
+  "presupuesto-2027-fondo-apoyo-transporte-regional": {
+    "estado": "en_proceso",
+    "titulo": "Fondo de Apoyo al Transporte Regional: el total sube, pero cae 71,6% su aporte del Subsidio Nacional"
+  },
+  "presupuesto-2027-fondo-tierras-indigenas": {
+    "estado": "en_proceso",
+    "titulo": "Fondo de Tierras y Aguas Indígenas (Conadi): baja 23,5% en 2027"
+  },
+  "presupuesto-2027-liceos-bicentenario": {
+    "estado": "en_proceso",
+    "titulo": "Liceos Bicentenario: baja 18,8% la transferencia corriente"
+  },
+  "presupuesto-2027-ninez-siete-programas": {
+    "estado": "en_proceso",
+    "titulo": "Siete programas de infancia pierden $34.451 millones"
+  },
+  "presupuesto-2027-programas-con-malas-evaluaciones": {
+    "estado": "en_proceso",
+    "titulo": "Recorte promedio de 18% a 144 programas con malas evaluaciones"
+  },
+  "presupuesto-2027-programas-salud-trans": {
+    "estado": "en_proceso",
+    "titulo": "Programas de identidad de género y salud trans sin asignación explícita"
+  },
+  "presupuesto-2027-tenencia-responsable-mascotas": {
+    "estado": "en_proceso",
+    "titulo": "Programa de Tenencia Responsable de Mascotas (Ley Cholito) cae 86%"
+  },
+  "presupuesto-2027-tramitacion-congreso": {
+    "estado": "en_proceso",
+    "titulo": "Presupuesto 2027: qué rechazó la Cámara y qué viene en el Senado"
+  },
+  "presupuesto-2027-universidad-de-chile": {
+    "estado": "en_proceso",
+    "titulo": "Universidad de Chile: baja el aporte directo y se crean dos asignaciones nuevas"
+  },
+  "presupuesto-2027-yo-elijo-mi-pc": {
+    "estado": "en_proceso",
+    "titulo": "Fin del programa “Yo Elijo mi PC” (notebooks para estudiantes)"
+  },
+  "retiro-43-decretos-ambientales": {
+    "estado": "postergado",
+    "titulo": "Retiro de 43 decretos ambientales en trámite en Contraloría"
+  },
+  "retiro-nueva-ley-de-pesca": {
+    "estado": "postergado",
+    "titulo": "Retiro del proyecto de nueva Ley General de Pesca"
+  },
+  "retiro-proyecto-negociacion-ramal": {
+    "estado": "eliminado",
+    "titulo": "Retiro del proyecto de negociación colectiva ramal (multinivel)"
+  }
+}

@@ -6,6 +6,9 @@ import "./globals.css";
 
 const SITIO = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
+/** El enlace a los avisos aparece solo cuando se activan en Vercel (NEXT_PUBLIC_AVISOS=1). */
+const AVISOS_ACTIVOS = process.env.NEXT_PUBLIC_AVISOS === "1";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITIO),
   title: { default: "Ajuste de Cuentas", template: "%s · Ajuste de Cuentas" },
@@ -30,9 +33,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/" className="text-lg font-bold tracking-tight">
               Ajuste de Cuentas
             </Link>
-            <Link href="/metodologia" className="text-sm underline-offset-4 hover:underline">
-              Metodología
-            </Link>
+            <div className="flex items-center gap-4">
+              {AVISOS_ACTIVOS && (
+                <Link href="/avisos" className="text-sm underline-offset-4 hover:underline">
+                  Avisos
+                </Link>
+              )}
+              <Link href="/metodologia" className="text-sm underline-offset-4 hover:underline">
+                Metodología
+              </Link>
+            </div>
           </nav>
         </header>
         <main className="mx-auto max-w-3xl px-4 py-6">{children}</main>
