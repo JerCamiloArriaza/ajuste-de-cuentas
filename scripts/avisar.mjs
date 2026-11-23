@@ -62,7 +62,7 @@ async function esperarPublicacion(eventos, nombres) {
   }
 }
 
-// Modo de prueba (solo desde GitHub, con el token): envía un aviso claramente marcado como prueba,
+// Modo de prueba (solo desde GitHub, con el token): envía un aviso con el mismo formato que los reales (Chrome desconfía de mensajes que dicen "prueba"),
 // sin tocar ninguna ficha ni el registro de lo ya avisado.
 if (process.env.PRUEBA === "true") {
   if (!TOKEN) {
@@ -72,7 +72,7 @@ if (process.env.PRUEBA === "true") {
   const r = await fetch(`${SITIO}/api/avisos/enviar`, {
     method: "POST",
     headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ eventos: [{ id: "decreto-333-2026", titulo: "Prueba de avisos: puedes ignorar este mensaje", estado: "aprobado", tipo: "nuevo" }] }),
+    body: JSON.stringify({ eventos: [{ id: "decreto-333-2026", titulo: "Recorte de $413.193 millones: Ministerio de Salud", estado: "aprobado", tipo: "cambio" }] }),
   });
   console.log(`Prueba de envío: HTTP ${r.status} ${await r.text()}`);
   process.exit(r.ok ? 0 : 1);
