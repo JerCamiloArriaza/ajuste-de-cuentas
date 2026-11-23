@@ -62,6 +62,22 @@ async function esperarPublicacion(eventos, nombres) {
   }
 }
 
+// Modo de prueba (solo desde GitHub, con el token): envía un aviso claramente marcado como prueba,
+// sin tocar ninguna ficha ni el registro de lo ya avisado.
+if (process.env.PRUEBA === "true") {
+  if (!TOKEN) {
+    console.error("Falta PUSH_ADMIN_TOKEN: no se puede enviar la prueba.");
+    process.exit(1);
+  }
+  const r = await fetch(`${SITIO}/api/avisos/enviar`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ eventos: [{ id: "decreto-333-2026", titulo: "Prueba de avisos: puedes ignorar este mensaje", estado: "aprobado", tipo: "nuevo" }] }),
+  });
+  console.log(`Prueba de envío: HTTP ${r.status} ${await r.text()}`);
+  process.exit(r.ok ? 0 : 1);
+}
+
 const { estadoPublicado, NOMBRES_ESTADO } = await cargarEstadoActual();
 const actual = estadoPublicado();
 

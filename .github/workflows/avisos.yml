@@ -10,6 +10,11 @@ on:
       - "data/decretos-ajuste-2026.ts"
       - "data/automaticos.json"
   workflow_dispatch:
+    inputs:
+      prueba:
+        description: "Enviar un aviso de prueba (no cambia ninguna ficha)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write # solo para guardar data/avisos-estado.json
@@ -38,6 +43,7 @@ jobs:
         env:
           PUSH_ADMIN_TOKEN: ${{ secrets.PUSH_ADMIN_TOKEN }}
           SITE_URL: https://ajuste-de-cuentas.vercel.app
+          PRUEBA: ${{ inputs.prueba }}
         run: node scripts/avisar.mjs
 
       - name: Guardar lo ya avisado
