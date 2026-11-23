@@ -17,7 +17,13 @@ export async function POST(request: Request) {
 
   const cuerpo = await leerJson(request, 64_000);
   if (cuerpo === undefined) return error(400, "Datos inválidos.");
-  const enviar = await crearEnviador();
+  let enviar;
+  try {
+    enviar = await crearEnviador();
+  } catch (e) {
+    // Solo lo ve quien tiene el token. El mensaje de web-push describe el problema (p. ej. el largo de la clave), nunca la clave.
+    return error(500, `No se pudo preparar el envío: ${(e as Error).message.slice(0, 160)}`);
+  }
   if (!enviar) return error(503, "Los avisos todavía no están activos.");
   return responder(await enviarAvisos({ eventos: (cuerpo as { eventos?: unknown }).eventos, almacen: ctx.almacen, enviar }));
 }
