@@ -11,7 +11,9 @@ export function avisosConfigurados(): boolean {
 export async function crearEnviador(): Promise<Enviador | null> {
   const privada = process.env.VAPID_PRIVATE_KEY;
   if (!privada) return null;
-  const webpush = (await import("web-push")).default;
+  // web-push es un módulo antiguo (CommonJS): según cómo lo empaquete Next, sus funciones vienen en `default` o directamente.
+  const modulo = (await import("web-push")) as unknown as { default?: typeof import("web-push") } & typeof import("web-push");
+  const webpush = modulo.default ?? modulo;
   webpush.setVapidDetails(SITIO, CLAVE_PUBLICA_VAPID, privada);
   return async (sub, aviso) => {
     try {

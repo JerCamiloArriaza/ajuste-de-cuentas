@@ -201,3 +201,12 @@ describe("avisos: controles de seguridad HTTP", () => {
     expect(await leerJson(json('{"a":1}', "text/plain"), 100)).toBeUndefined();
   });
 });
+
+describe("avisos: la librería de envío se carga bien", () => {
+  it("expone setVapidDetails y sendNotification, sea por default o directamente", async () => {
+    const modulo = (await import("web-push")) as unknown as { default?: { setVapidDetails?: unknown; sendNotification?: unknown }; setVapidDetails?: unknown; sendNotification?: unknown };
+    const webpush = modulo.default ?? modulo;
+    expect(typeof webpush.setVapidDetails).toBe("function");
+    expect(typeof webpush.sendNotification).toBe("function");
+  });
+});
